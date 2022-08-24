@@ -1,6 +1,10 @@
 Desarrollo de la section "Inciar-entrenamiento"
 23/08/22  23:02
 
+Reestructurazion del HTML 
+Integracion de los elementos dentro de un forms, a razon de que el input:submit funcione 
+24/08/22  15:47
+
 PENDIENTES: 
 - Desarrollar el resto de la aplicaion
 - Crear documento(s) tipo .json para guadar los datos de las dos rutinas
