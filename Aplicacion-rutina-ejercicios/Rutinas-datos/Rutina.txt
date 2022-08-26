@@ -1,0 +1,61 @@
+{
+    "Rutina1" : [
+        {
+            "ejercicio": "PUSH-UPS",
+            "CAD": "101" ,
+            "Reps": "8 a 10"
+        } , {
+            "ejercicio": "PRESS MILITAR",
+            "CAD": "102" ,
+            "Reps": "8 a 10"
+        } , {
+            "ejercicio": "PUSH-UPS DECLINADO",
+            "CAD": "101" ,
+            "Reps": "8 a 10"
+        } , {
+            "ejercicio": "VUELOS LATERALES",
+            "CAD": "102" ,
+            "Reps": "8 a 10"
+        } , {
+            "ejercicio": "FONDOS",
+            "CAD": "102" ,
+            "Reps": "8 a 10"
+        } , {
+            "ejercicio": "CURL DE BICEPS",
+            "CAD": "102" ,
+            "Reps": "8 a 10"
+        }
+    ] ,
+
+    "Rutina2" : [
+        {
+            "ejercicio": "JALON AL PECHO",
+            "CAD": "103" ,
+            "Reps": "8 a 10"
+        } , {
+            "ejercicio": "SENTADILLA",
+            "CAD": "102" ,
+            "Reps": "8 a 10"
+        } , {
+            "ejercicio": "REMO",
+            "CAD": "102" ,
+            "Reps": "8 a 10"
+        } , {
+            "ejercicio": "HIP THRUST",
+            "CAD": "103" ,
+            "Reps": "8 a 10"
+        } , {
+            "ejercicio": "HOMBRO POSTERIOR",
+            "CAD": "102" ,
+            "Reps": "8 a 10"
+        } , {
+            "ejercicio": "CURL DE BICEPS",
+            "CAD": "102" ,
+            "Reps": "8 a 10"
+        } , {
+            "ejercicio": "ABS",
+            "CAD": "103" ,
+            "Reps": "8 a 10"
+        }
+    ]
+}
