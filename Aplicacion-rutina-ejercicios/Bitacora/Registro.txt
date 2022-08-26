@@ -9,9 +9,9 @@ Desarrollo de la aplicaion
 (obtencion de resulatos de promesa fetch funcional)
 24/08/22 22:53
 
-
-25/08/22
+Desarrollo de la app, Fronted funcional
+25/08/22 22:01
 
 PENDIENTES: 
 - Desarrollar el resto de la aplicaion
-- Crear documento(s) tipo .json para guadar los datos de las dos rutinas
+- meter el ciclo for[series] dentro de un ciclo for "promesa[TipoRutina].length" cantidad de veces

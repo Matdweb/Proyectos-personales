@@ -63,7 +63,7 @@ const IniciarCronometroEntrenamiento = async (promesa,TipoRutina,descanso,series
 
         await IniciarSegundos();
         let Minutaje = await IniciarMinutos(descanso); 
-    console.log(`Se ejecuto ${serie} veces`); 
+    console.log(`Se ejecuto ${serie} veces`);   //posible error que no se ejecuten los minutos hasta que los segundos hayan terminado
 }
 }
 
