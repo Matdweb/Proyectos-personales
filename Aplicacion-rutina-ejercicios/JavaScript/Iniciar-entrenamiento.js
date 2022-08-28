@@ -18,20 +18,12 @@ empezar.addEventListener("click", ()=>{
     //llamar a la info de la primera rutina
     let peticion = fetch("../Rutinas-datos/Rutina.txt"); 
     peticion.then(promesa=>promesa.json())
-            .then(promesa=> obtenerResultados(promesa,series,descanso,rutina));  
+            .then(promesa=> configurarMinutaje(promesa,series,descanso,rutina));  
             
 }); 
 
-//llamar a la info de la primera rutina
-const obtenerResultados = (promesa,series,descanso,rutina) =>{
-    console.log(promesa["Rutina1"][0]["ejercicio"]); 
-    console.log(promesa["Rutina1"][0]["CAD"]);
-    console.log(promesa["Rutina1"][0]["Reps"]);
-    console.log(promesa["Rutina1"].length);
-    IniciarEntrenamiento(promesa,series,descanso,rutina); 
-}
 
-const IniciarEntrenamiento = (promesa,series,descanso,rutina) =>{
+const configurarMinutaje = (promesa,series,descanso,rutina) =>{
     let contenedorAmarillo = document.querySelector(".informacion-pre-entreno"); 
     contenedorAmarillo.classList.replace("informacion-pre-entreno","informacion-ejercicio"); 
     let contenedorRojo = document.querySelector(".container-empezar");
@@ -44,12 +36,12 @@ const IniciarEntrenamiento = (promesa,series,descanso,rutina) =>{
     }
     
     //meter esto dentro de un ciclo for "promesa[TipoRutina].length" cantidad de veces
-    IniciarCronometroEntrenamiento(promesa,TipoRutina,descanso,series,contenedorAmarillo,contenedorRojo)
+    IniciarEjercicio(promesa,TipoRutina,descanso,series,contenedorAmarillo,contenedorRojo)
                             
 }
 
 
-const IniciarCronometroEntrenamiento = async (promesa,TipoRutina,descanso,series,contenedorAmarillo,contenedorRojo) =>{
+const IniciarEjercicio = async (promesa,TipoRutina,descanso,series,contenedorAmarillo,contenedorRojo) =>{
     for (let serie=0; serie < series; serie++){
         contenedorAmarillo.innerHTML = `<h1>Ejercicio: ${promesa[TipoRutina][0]["ejercicio"]}</h1>
                                     <p>${promesa[TipoRutina][0]["Reps"]} <br> REPETICIONES </p>
@@ -61,10 +53,10 @@ const IniciarCronometroEntrenamiento = async (promesa,TipoRutina,descanso,series
                                         <p class="sig-ejercicio" >Siguiente ejercicio: ${promesa[TipoRutina][0+1]["ejercicio"]}</p>
                                     </div>`; 
 
-        await IniciarSegundos();
-        let Minutaje = await IniciarMinutos(descanso); 
-    console.log(`Se ejecuto ${serie} veces`);   //posible error que no se ejecuten los minutos hasta que los segundos hayan terminado
-}
+        await IniciarCronometro(descanso);   
+
+        console.log(`Se ejecuto ${serie} veces`);   //posible error que no se ejecuten los minutos hasta que los segundos hayan terminado
+    }
 }
 
 //Iniciar el coronometro 
@@ -73,43 +65,55 @@ let segundos;
 var s = 59;
 var m; 
 
-
 const IniciarCronometro = async (descanso) =>{ 
-    await IniciarSegundos();
-    let Minutaje = await IniciarMinutos(descanso);  
+    IniciarSegundos();
+    await IniciarMinutos(descanso);
+    return new Promise((resolve, reject)=>{ 
+        resolve(console.log(`El tiempo terminó`)); 
+    }); 
+
 }
 
-const IniciarMinutos = async (descanso) =>{
+const IniciarMinutos = async (descanso) =>{ 
     minutos = document.querySelector(".minutos"); 
-    m = descanso; 
-    return new Promise((resolve,reject)=>{
-        setInterval(()=>{
-            if(m==0){
-                clearInterval(); 
-                minutos.innerHTML = m; 
-                resolve(m); 
-            }else{ 
-                minutos.innerHTML = m-1; 
-                m--; 
-            }
-        },60000);
-    })
+    console.log(descanso); 
+    if(descanso>1){
+        m = (descanso-1); 
+    }else{
+        m = descanso; 
+    }
+    console.log(m + `aqui`); 
+
+        return new Promise((resolve,reject)=>{
+            setInterval(()=>{
+                console.log(`Los minutos empezaron`); 
+                if(m==0){
+                    clearInterval(); 
+                    minutos.innerHTML = m; 
+                    resolve(console.log(`El minutaje termino`));  
+                }else{  
+                    minutos.innerHTML = m-1; 
+                    m--; 
+                }
+            },60000);
+        })
 }
 
-const IniciarSegundos = async () =>{
+const IniciarSegundos = async () =>{ 
     segundos = document.querySelector(".segundos"); 
     setInterval(()=>{
-        if(m!=0){
+        if(m==0){
+            console.log(m + ` segundos`)
             if(s==0){
                 segundos.innerHTML = `:${s}`;
-                s=59;  
-                s--; 
+                clearInterval();  
+                s = 59; 
+                console.log(`Los segundos terminaron`); 
             }else{
                 segundos.innerHTML = `:${s}`; 
                 s--;
             }
-        } 
+        }
     },1000); 
 }
-
 
