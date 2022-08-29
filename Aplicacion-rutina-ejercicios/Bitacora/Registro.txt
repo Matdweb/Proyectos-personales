@@ -12,6 +12,10 @@ Desarrollo de la aplicaion
 Desarrollo de la app, Fronted funcional
 25/08/22 22:01
 
+Continua el desarrollo de la aplicacion 
+(SetTimeout con un tiempo definido)
+29/08/22   00:58
+
 PENDIENTES: 
 - Desarrollar el resto de la aplicaion
 - meter el ciclo for[series] dentro de un ciclo for "promesa[TipoRutina].length" cantidad de veces

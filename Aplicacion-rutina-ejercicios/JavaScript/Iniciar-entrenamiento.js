@@ -52,8 +52,9 @@ const IniciarEjercicio = async (promesa,TipoRutina,descanso,series,contenedorAma
                                         <h2 class="segundos">:00</h2>
                                         <p class="sig-ejercicio" >Siguiente ejercicio: ${promesa[TipoRutina][0+1]["ejercicio"]}</p>
                                     </div>`; 
-
+try{
         await IniciarCronometro(descanso);   
+}catch(e){ console.log(e) }
 
         console.log(`Se ejecuto ${serie} veces`);   //posible error que no se ejecuten los minutos hasta que los segundos hayan terminado
     }
@@ -65,55 +66,88 @@ let segundos;
 var s = 59;
 var m; 
 
-const IniciarCronometro = async (descanso) =>{ 
-    IniciarSegundos();
-    await IniciarMinutos(descanso);
-    return new Promise((resolve, reject)=>{ 
-        resolve(console.log(`El tiempo terminó`)); 
-    }); 
-
-}
-
-const IniciarMinutos = async (descanso) =>{ 
+const IniciarCronometro = async (descanso)=>{
     minutos = document.querySelector(".minutos"); 
-    console.log(descanso); 
-    if(descanso>1){
-        m = (descanso-1); 
-    }else{
-        m = descanso; 
-    }
-    console.log(m + `aqui`); 
-
-        return new Promise((resolve,reject)=>{
-            setInterval(()=>{
-                console.log(`Los minutos empezaron`); 
-                if(m==0){
-                    clearInterval(); 
-                    minutos.innerHTML = m; 
-                    resolve(console.log(`El minutaje termino`));  
-                }else{  
-                    minutos.innerHTML = m-1; 
-                    m--; 
-                }
-            },60000);
-        })
-}
-
-const IniciarSegundos = async () =>{ 
     segundos = document.querySelector(".segundos"); 
-    setInterval(()=>{
-        if(m==0){
-            console.log(m + ` segundos`)
-            if(s==0){
-                segundos.innerHTML = `:${s}`;
-                clearInterval();  
-                s = 59; 
-                console.log(`Los segundos terminaron`); 
-            }else{
-                segundos.innerHTML = `:${s}`; 
-                s--;
-            }
-        }
-    },1000); 
+
+    m = descanso; 
+    console.log(m); 
+   return new Promise ((resolve,reject)=>{
+    let cronometro = setTimeout(()=>{resolve(console.log(`ya`))},2000); //Funcionó
+}); 
 }
+
+
+
+
+            //     minutos.innerHTML = m; 
+            //     m--;
+            // },60000); 
+            // if(s==0){
+            //     s = 59; 
+            //     segundos.innerHTML = `:${s}`; 
+            //     s--; 
+            // }else{
+            //     segundos.innerHTML = `:${s}`; 
+            //     s--;
+            // }
+            // setTimeout(()=>{
+            //     m=0; 
+            //     resolve(console.log(`It's done`));
+            // },(descanso*10000)); 
+//     }
+//    })
+// }
+
+// const IniciarCronometro = async (descanso) =>{ 
+//     IniciarSegundos();
+//     await IniciarMinutos(descanso);
+//     return new Promise((resolve, reject)=>{ 
+//         resolve(console.log(`El tiempo terminó`)); 
+//     }); 
+
+// }
+
+// const IniciarMinutos = async (descanso) =>{ 
+//     minutos = document.querySelector(".minutos"); 
+//     console.log(descanso); 
+//     if(descanso>1){
+//         m = (descanso-1); 
+//     }else{
+//         m = descanso; 
+//     }
+//     console.log(m + `aqui`); 
+
+//         return new Promise((resolve,reject)=>{
+//             setInterval(()=>{
+//                 console.log(`Los minutos empezaron`); 
+//                 if(m==0){
+//                     clearInterval(); 
+//                     minutos.innerHTML = m; 
+//                     resolve(console.log(`El minutaje termino`));  
+//                 }else{  
+//                     minutos.innerHTML = m-1; 
+//                     m--; 
+//                 }
+//             },60000);
+//         })
+// }
+
+// const IniciarSegundos = async () =>{ 
+//     segundos = document.querySelector(".segundos"); 
+//     setInterval(()=>{
+//         if(m==0){
+//             console.log(m + ` segundos`)
+//             if(s==0){
+//                 segundos.innerHTML = `:${s}`;
+//                 clearInterval();  
+//                 s = 59; 
+//                 console.log(`Los segundos terminaron`); 
+//             }else{
+//                 segundos.innerHTML = `:${s}`; 
+//                 s--;
+//             }
+//         }
+//     },1000); 
+// }
 
