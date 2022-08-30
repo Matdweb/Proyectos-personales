@@ -39,7 +39,7 @@ const configurarMinutaje = (promesa,rutina) =>{
 
 
 const IniciarEjercicio = async (promesa,TipoRutina,descansoMin,series,contenedorAmarillo,contenedorRojo) =>{
-    for(let i = 0; i < promesa[TipoRutina].length; i++){
+    for(let i = 0; i <= promesa[TipoRutina].length; i++){
         for (let serie=0; serie < series; serie++){
             contenedorAmarillo.style.backgroundColor = "#28F824"; 
             contenedorAmarillo.innerHTML = `<h1>Ejercicio: ${promesa[TipoRutina][i]["ejercicio"]}</h1>
