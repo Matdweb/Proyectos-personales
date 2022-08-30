@@ -26,3 +26,4 @@ Funcionamiento de la APP, desarrollo completo
 PENDIENTES: 
 - Integrar input de segundos
 - Integrar ejercicios con tiempos especiales
+- Agregar voz que mencione la informacion
