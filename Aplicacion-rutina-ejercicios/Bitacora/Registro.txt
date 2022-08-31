@@ -27,6 +27,11 @@ Integracion del input segundos funcional
 Integracion de voz guia
 30/08/22  22:22
 
-PENDIENTES: 
-- Integrar imagenes
-- Integrar ejercicios con tiempos especiales
+Integracion de voz giau 100% funcional 
+Integracion de imagenes por ejercicio exitosa
+Integracion de ejercicios especiales
+31/08/22   14:36
+
+DESARROLLO COMPLETO 
+- PENDIENTE: INTEGRACIONES FUTURAS
+31/08/22   14:36

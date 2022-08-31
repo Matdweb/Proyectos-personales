@@ -39,37 +39,90 @@ const IniciarEntrenamiento = (promesa,rutina) =>{
     
         //Configura la info del ejercicio 
         IniciarEjercicio(promesa,TipoRutina,descansoMin,descansoSeg,series,contenedorAmarillo,contenedorRojo);  
+
 }
 
 
 const IniciarEjercicio = async (promesa,TipoRutina,descansoMin,descansoSeg,series,contenedorAmarillo,contenedorRojo) =>{
+    let auxSeries = series; 
+    let auxMin = descansoMin; 
+    let auxSeg = descansoSeg; 
     for(let i = 0; i <= promesa[TipoRutina].length; i++){
         for (let serie=0; serie < series; serie++){ 
+
+
+            //Decir la informacion al usuario
+            msj = new SpeechSynthesisUtterance(); 
+            msj.lang = 'es-ES';
+            let hablar = window.speechSynthesis;
+
+            //Se define el timepo de descanso
+            if(promesa[TipoRutina][i]["Tiempo"]=="personalizado"){  //si el ejercicio tiene que tener un tiempo especifico
+                descansoMin = promesa[TipoRutina][i]["min"]; 
+                descansoSeg = promesa[TipoRutina][i]["seg"];
+                console.log(descansoMin); 
+                console.log(descansoSeg)
+                series = promesa[TipoRutina][i]["series"];
+            }else{
+                console.log(`Fin de ejercicios de calentamiento`);
+                descansoSeg = auxSeg; 
+                descansoMin = auxMin; 
+                series = auxSeries; 
+            }//sino se asigna el del usuario
+
+            descanso = (descansoMin *60000) + (descansoSeg *1000);
 
             contenedorAmarillo.innerHTML = `<h1>Ejercicio: ${promesa[TipoRutina][i]["ejercicio"]}</h1>
                                         <p>${promesa[TipoRutina][i]["Reps"]} <br> REPETICIONES </p>
                                         <label> ${promesa[TipoRutina][i]["CAD"]} <br> CADENCIA </label>`; 
-            contenedorRojo.innerHTML = `<div class="container-minutaje" >
+
+            try {
+                contenedorRojo.innerHTML = `<div class="container-minutaje" >
+                                                <p class="num-series">Numero de serie: ${serie+1} </p>
+                                                <h2 class="minutos" >${descansoMin-1}</h2>
+                                                <h2 class="segundos">:${descansoSeg}</h2>
+                                                <p class="sig-ejercicio" >Siguiente ejercicio: ${promesa[TipoRutina][i+1]["ejercicio"]}</p>
+                                            </div>
+                                            <div class="omitir">
+                                                    <p>></p>
+                                            </div>
+                                            <div class="container-imagen">
+                                                <img class="imagen-ejercicio">
+                                            </div>`; 
+
+                msj.text = `Ejercicio ${promesa[TipoRutina][i]["ejercicio"]}, series completadas ${serie+1}, repeticiones ${promesa[TipoRutina][i]["Reps"]}, 
+                        cadencia${promesa[TipoRutina][i]["CAD"]}, descanso de ${descansoMin} minutos con ${descansoSeg} segundos, siguiente ejercicio ${promesa[TipoRutina][i+1]["ejercicio"]}`;
+
+            } catch (e) {
+                contenedorRojo.innerHTML = `<div class="container-minutaje" >
                                             <p class="num-series">Numero de serie: ${serie+1} </p>
                                             <h2 class="minutos" >${descansoMin-1}</h2>
                                             <h2 class="segundos">:${descansoSeg}</h2>
-                                            <p class="sig-ejercicio" >Siguiente ejercicio: ${promesa[TipoRutina][i+1]["ejercicio"]}</p>
+                                            <p class="sig-ejercicio" >Siguiente ejercicio: ${promesa[TipoRutina][i]["ejercicio"]}</p>
                                         </div>
                                         <div class="omitir">
                                                 <p>></p>
-                                            </div>`; 
+                                        </div>
+                                        <div class="container-imagen">
+                                            <img class="imagen-ejercicio">
+                                        </div>`; 
 
-            descanso = (descansoMin*60000) + (descansoSeg*1000);
+                msj.text = `Ejercicio ${promesa[TipoRutina][i]["ejercicio"]}, series completadas ${serie+1}, repeticiones ${promesa[TipoRutina][i]["Reps"]}, 
+                        cadencia${promesa[TipoRutina][i]["CAD"]}, descanso de ${descansoMin} minutos con ${descansoSeg} segundos, siguiente ejercicio ${promesa[TipoRutina][i]["ejercicio"]}`;
 
-            //Decirt la informacion al usuario
-            msj = new SpeechSynthesisUtterance(); 
-            msj.text = `Ejercicio ${promesa[TipoRutina][i]["ejercicio"]}, series completadas ${serie+1}, repeticiones ${promesa[TipoRutina][i]["Reps"]}, 
-                        cadencia${promesa[TipoRutina][i]["CAD"]}, descanso de ${descansoMin} minuto con ${descansoSeg} segundos, siguiente ejercicio ${promesa[TipoRutina][i+1]["ejercicio"]}`;
-            msj.lang = 'es-ES';
-            window.speechSynthesis.speak(msj); 
+                                        
+            }
+
+            //Definir imagen
+            DefinirImagen(promesa,TipoRutina,i); 
+            
+
+            //Dice la informacion ya definida 
+            hablar.speak(msj)
 
             try{
-                await IniciarCronometro(promesa,descanso,descansoSeg,descansoMin,contenedorAmarillo,contenedorRojo); 
+                await IniciarCronometro(promesa,descanso,descansoSeg,descansoMin,contenedorAmarillo,contenedorRojo);  
+                hablar.cancel(); 
             }catch(e){  
                 console.log(e);
             } 
@@ -77,6 +130,7 @@ const IniciarEjercicio = async (promesa,TipoRutina,descansoMin,descansoSeg,serie
             console.log(`Se ejecuto ${serie} veces`);   
         }
     }
+    //Se termina el programa y vuelve a su estado orginal
 }
 
 //Iniciar el coronometro 
@@ -129,10 +183,11 @@ const IniciarCronometro = async (promesa,descanso, descansoSeg,descansoMin,conte
         contenedorAmarillo.style.backgroundColor = "#28F824"; //Se redefine el color de la caja amrilla a verde
 
         //Espera a que el usuario aprete el contendor para enviar la promesa
-        contenedorRojo.addEventListener("click",(evento)=>{
+        contenedorRojo.addEventListener("click",()=>{
             resolve(console.log(`Terminó el timer`));
             s=59; 
-            m=descansoMin;  
+            m=descansoMin; 
+            contenedorRojo.innerHTML = `<h1>HAS TERMINADO</h1>`;
         })
 
     },descanso); //Minutos y segundos definidos en el input 
@@ -145,6 +200,13 @@ const IniciarCronometro = async (promesa,descanso, descansoSeg,descansoMin,conte
         clearInterval(cronometro); 
         clearTimeout(Finish); 
         resolve(console.log(`Terminó el timer`));
+        contenedorRojo.innerHTML = `<h1>HAS TERMINADO</h1>`;
     })
 }); 
+}
+
+//Imagenes - funciones
+const DefinirImagen = (promesa,TipoRutina,i)=>{
+    let imagen = document.querySelector(".imagen-ejercicio"); 
+    imagen.src = promesa[TipoRutina][i]["Img"];
 }
