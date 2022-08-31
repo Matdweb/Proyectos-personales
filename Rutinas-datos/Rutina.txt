@@ -1,0 +1,141 @@
+{
+    "Rutina1" : [
+        {
+            "ejercicio": "JUMPING JACKS",
+            "CAD": "101" ,
+            "Reps": "2min",
+            "Tiempo": "personalizado",
+            "min": 2,
+            "seg": 0,
+            "series": 1,
+            "Img": "https://crossfitstein.com/wp-content/uploads/2020/04/jumping-jack.jpg"
+        } , {
+            "ejercicio": "PLANCHA",
+            "CAD": "0" ,
+            "Reps": "30seg",
+            "Tiempo": "personalizado",
+            "min": 0,
+            "seg": 30,
+            "series": 1,
+            "Img": "https://eresfitness.com/wp-content/uploads/2020/02/plancha-o-plank-740x416.jpg"
+        } , {
+            "ejercicio": "PUSH-UPS",
+            "CAD": "103" ,
+            "Reps": "10",
+            "Tiempo": "personalizado",
+            "min": 0,
+            "seg": 30,
+            "series": 1,
+            "Img": "https://cdn-icons-png.flaticon.com/512/2548/2548536.png"
+        } , {
+            "ejercicio": "PUSH-UPS",
+            "CAD": "101" ,
+            "Reps": "8 a 10",
+            "Img": "https://cdn-icons-png.flaticon.com/512/2548/2548536.png"
+        } , {
+            "ejercicio": "PRESS MILITAR",
+            "CAD": "102" ,
+            "Reps": "8 a 10",
+            "Img": "https://ejerciciosencasa.as.com/wp-content/uploads/2014/08/press-militar-con-barra.jpg"
+        } , {
+            "ejercicio": "PUSH-UPS DECLINADO",
+            "CAD": "101" ,
+            "Reps": "8 a 10",
+            "Img": "https://cdn.vectorstock.com/i/1000x1000/54/96/man-exercising-push-ups-icon-isometric-3d-style-vector-7995496.webp"
+        } , {
+            "ejercicio": "VUELOS LATERALES",
+            "CAD": "102" ,
+            "Reps": "8 a 10",
+            "Img": "https://eresfitness.com/wp-content/uploads/2019/09/Elevaciones-laterales-con-mancuernas.jpg"
+        } , {
+            "ejercicio": "FONDOS",
+            "CAD": "102" ,
+            "Reps": "8 a 10",
+            "Img": "https://eresfitness.com/wp-content/uploads/2020/04/23631105-Wide-Grip-Chest-Dip-on-High-Parallel-Bars_Chest_max.jpg"
+        } , {
+            "ejercicio": "CURL DE BICEPS",
+            "CAD": "102" ,
+            "Reps": "8 a 10",
+            "Img": "https://eresfitness.com/wp-content/uploads/2019/05/Curl-alternado-con-mancuerna.jpg"
+        }
+    ] ,
+
+    "Rutina2" : [
+        {
+            "ejercicio": "JUMPING JACKS",
+            "CAD": "101" ,
+            "Reps": "2min",
+            "Tiempo": "personalizado",
+            "min": 2,
+            "seg": 0,
+            "series": 1,
+            "Img": "https://crossfitstein.com/wp-content/uploads/2020/04/jumping-jack.jpg"
+        } , {
+            "ejercicio": "PLANCHA",
+            "CAD": "0" ,
+            "Reps": "40seg",
+            "Tiempo": "personalizado",
+            "min": 0,
+            "seg": 40,
+            "series": 1,
+            "Img": "https://eresfitness.com/wp-content/uploads/2020/02/plancha-o-plank-740x416.jpg"
+        } , {
+            "ejercicio": "HIP-THRUST",
+            "CAD": "103" ,
+            "Reps": "10",
+            "Tiempo": "personalizado",
+            "min": 0,
+            "seg": 30,
+            "series": 1,
+            "Img": "https://eresfitness.com/wp-content/uploads/2019/09/Hip-thrust.jpg"
+        } , {
+            "ejercicio": "SENTADILLAS",
+            "CAD": "103" ,
+            "Reps": "10",
+            "Tiempo": "personalizado",
+            "min": 0,
+            "seg": 30,
+            "series": 1,
+            "Img": "https://eresfitness.com/wp-content/uploads/2020/04/11971105-Squat-m_Thighs_max.jpg"
+        } , {
+            "ejercicio": "JALON AL PECHO",
+            "CAD": "103" ,
+            "Reps": "8 a 10",
+            "Img": "https://eresfitness.com/wp-content/uploads/2020/02/06521105-Pull-up_Back_max-740x416.jpg"
+        } , {
+            "ejercicio": "SENTADILLA",
+            "CAD": "102" ,
+            "Reps": "8 a 10",
+            "Img": "https://eresfitness.com/wp-content/uploads/2020/04/11971105-Squat-m_Thighs_max.jpg"
+        } , {
+            "ejercicio": "REMO",
+            "CAD": "102" ,
+            "Reps": "8 a 10",
+            "Img": "https://eresfitness.com/wp-content/uploads/2019/07/ui.png"
+        } , {
+            "ejercicio": "HIP THRUST",
+            "CAD": "103" ,
+            "Reps": "8 a 10",
+            "Img": "https://eresfitness.com/wp-content/uploads/2019/09/Hip-thrust.jpg"
+        } , {
+            "ejercicio": "HOMBRO POSTERIOR",
+            "CAD": "102" ,
+            "Reps": "8 a 10",
+            "Img": "https://eresfitness.com/wp-content/uploads/2019/09/elevaciones-posteriores.png"
+        } , {
+            "ejercicio": "CURL DE BICEPS",
+            "CAD": "102" ,
+            "Reps": "8 a 10",
+            "Img": "https://eresfitness.com/wp-content/uploads/2019/05/Curl-alternado-con-mancuerna.jpg"
+        } , {
+            "ejercicio": "ABS",
+            "CAD": "103" ,
+            "Reps": "8 a 10",
+            "Tiempo": "personalizado",
+            "min": 1,
+            "seg": 0,
+            "series": 3,
+            "Img": "https://eresfitness.com/wp-content/uploads/2020/02/02621105-Cross-Body-Crunch_waist_max.jpg"
+        }
+    ]
+}
