@@ -23,7 +23,10 @@ Funcionamiento de la APP, desarrollo completo
 (Pendiente - integraciones)
 29/08/22  23:39
 
+Integracion del input segundos funcional
+Integracion de voz guia
+30/08/22  22:22
+
 PENDIENTES: 
-- Integrar input de segundos
+- Integrar imagenes
 - Integrar ejercicios con tiempos especiales
-- Agregar voz que mencione la informacion

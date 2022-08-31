@@ -55,7 +55,7 @@
 /*CAJA ROJA*/
 .container-caja-roja{
     width: 350px;
-    height: 250px;
+    height: 260px;
     background-color: #ff3131;
     margin: 10px;
     border-radius: 10px;
@@ -76,6 +76,7 @@
     background-color: rgba(0, 0, 0, 0);
     white-space: nowrap;
     font-weight: bold;
+    margin-top: 12px;
 }
 
 .container-caja-roja .container-minutaje .num-series{

@@ -10,7 +10,7 @@
 
 .informacion-pre-entreno {
     width: 300px;
-    height: 150px;
+    height: 200px;
     background-color: #F3F824;
     display: flex;
     flex-flow: column nowrap;
@@ -32,8 +32,8 @@
     margin-left: 10px;
 }
 
-.informacion-pre-entreno #input-min{
-   margin-left: 43px;
+.informacion-pre-entreno .txt-extra{
+   margin-left: 33px;
 }
 
 .informacion-pre-entreno div input{
@@ -41,7 +41,7 @@
     font-size: 18px;
     background: #000;
     color: #fff;
-    margin-left: 70px;
+    margin-left: 60px;
 }
 
 /*BOTON ROJO - EMPEZAR*/

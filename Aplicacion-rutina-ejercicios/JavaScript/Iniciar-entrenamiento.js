@@ -1,4 +1,5 @@
-let TipoRutina;  
+let TipoRutina;   
+let msj; 
 
 const Empezar = () =>{ 
     let rutina =  document.querySelector(".rutina").value; 
@@ -10,19 +11,21 @@ const Empezar = () =>{
     //llamar a la info de la primera rutina
     let peticion = fetch("../Rutinas-datos/Rutina.txt"); 
     peticion.then(promesa=>promesa.json())
-            .then(promesa=> configurarMinutaje(promesa,rutina));     
+            .then(promesa=> IniciarEntrenamiento(promesa,rutina));     
     
     document.querySelector(".btn-empezar").removeAttribute("onclick"); 
 
 }
 
 
-const configurarMinutaje = (promesa,rutina) =>{
-    //inputs
+const IniciarEntrenamiento = (promesa,rutina) =>{
+    //Se definen inputs
     let series = document.querySelector(".series").value; 
     let descansoMin = document.querySelector(".descansoMin").value;
+    let descansoSeg = document.querySelector(".descansoSeg").value; 
+    let descanso; 
 
-    //contenedores
+    //Se modifican contenedores
     let contenedorAmarillo = document.querySelector(".informacion-pre-entreno"); 
     contenedorAmarillo.classList.replace("informacion-pre-entreno","informacion-ejercicio"); 
     let contenedorRojo = document.querySelector(".container-empezar");
@@ -34,32 +37,43 @@ const configurarMinutaje = (promesa,rutina) =>{
         TipoRutina = "Rutina2"
     }
     
-        IniciarEjercicio(promesa,TipoRutina,descansoMin,series,contenedorAmarillo,contenedorRojo);  
+        //Configura la info del ejercicio 
+        IniciarEjercicio(promesa,TipoRutina,descansoMin,descansoSeg,series,contenedorAmarillo,contenedorRojo);  
 }
 
 
-const IniciarEjercicio = async (promesa,TipoRutina,descansoMin,series,contenedorAmarillo,contenedorRojo) =>{
+const IniciarEjercicio = async (promesa,TipoRutina,descansoMin,descansoSeg,series,contenedorAmarillo,contenedorRojo) =>{
     for(let i = 0; i <= promesa[TipoRutina].length; i++){
-        for (let serie=0; serie < series; serie++){
-            contenedorAmarillo.style.backgroundColor = "#28F824"; 
+        for (let serie=0; serie < series; serie++){ 
+
             contenedorAmarillo.innerHTML = `<h1>Ejercicio: ${promesa[TipoRutina][i]["ejercicio"]}</h1>
                                         <p>${promesa[TipoRutina][i]["Reps"]} <br> REPETICIONES </p>
                                         <label> ${promesa[TipoRutina][i]["CAD"]} <br> CADENCIA </label>`; 
             contenedorRojo.innerHTML = `<div class="container-minutaje" >
                                             <p class="num-series">Numero de serie: ${serie+1} </p>
                                             <h2 class="minutos" >${descansoMin-1}</h2>
-                                            <h2 class="segundos">:00</h2>
+                                            <h2 class="segundos">:${descansoSeg}</h2>
                                             <p class="sig-ejercicio" >Siguiente ejercicio: ${promesa[TipoRutina][i+1]["ejercicio"]}</p>
-                                            <div class="omitir">
+                                        </div>
+                                        <div class="omitir">
                                                 <p>></p>
-                                            </div>
-                                        </div>`; 
+                                            </div>`; 
+
+            descanso = (descansoMin*60000) + (descansoSeg*1000);
+
+            //Decirt la informacion al usuario
+            msj = new SpeechSynthesisUtterance(); 
+            msj.text = `Ejercicio ${promesa[TipoRutina][i]["ejercicio"]}, series completadas ${serie+1}, repeticiones ${promesa[TipoRutina][i]["Reps"]}, 
+                        cadencia${promesa[TipoRutina][i]["CAD"]}, descanso de ${descansoMin} minuto con ${descansoSeg} segundos, siguiente ejercicio ${promesa[TipoRutina][i+1]["ejercicio"]}`;
+            msj.lang = 'es-ES';
+            window.speechSynthesis.speak(msj); 
+
             try{
-                await IniciarCronometro(descansoMin,contenedorAmarillo,contenedorRojo);   
-            }catch(e){ 
-                console.log(e); 
+                await IniciarCronometro(promesa,descanso,descansoSeg,descansoMin,contenedorAmarillo,contenedorRojo); 
+            }catch(e){  
+                console.log(e);
             } 
-    
+
             console.log(`Se ejecuto ${serie} veces`);   
         }
     }
@@ -71,10 +85,10 @@ let segundos;
 var s = 59;
 var m; 
 
-const IniciarCronometro = async (descansoMin,contenedorAmarillo,contenedorRojo)=>{
-    let btnOmitir = document.querySelector(".omitir");
+const IniciarCronometro = async (promesa,descanso, descansoSeg,descansoMin,contenedorAmarillo,contenedorRojo)=>{
+    let btnOmitir = document.querySelector(".omitir");  
 
-    contenedorAmarillo.style.backgroundColor = "#F3F824";
+    contenedorAmarillo.style.backgroundColor = "#F3F824"; //El contenedor amarillo se define con su color amarillo  
 
     minutos = document.querySelector(".minutos"); 
     segundos = document.querySelector(".segundos"); 
@@ -83,13 +97,19 @@ const IniciarCronometro = async (descansoMin,contenedorAmarillo,contenedorRojo)=
     console.log(m); 
    return new Promise ((resolve,reject)=>{
     console.log(`Inicia el cornometro`);
-    minutos.innerHTML = m-1;
+    //El cronometro se ejecuta en cada segundo y cada 59s se redefine el m (minutaje)
+    s = descansoSeg; 
+    if(s>1 && s<59){
+        minutos.innerHTML = m;
+    }else{
+        minutos.innerHTML = m-1;
+    }
     let cronometro = setInterval(()=>{
-        if(s==1){
+        if(s==0){
             s = 59; 
             m--; 
             segundos.innerHTML = `:${s}`; 
-            minutos.innerHTML = m-1;
+            minutos.innerHTML = m;
             s--; 
         }else if(s<10){
             segundos.innerHTML = `:0${s}`; 
@@ -100,23 +120,24 @@ const IniciarCronometro = async (descansoMin,contenedorAmarillo,contenedorRojo)=
         }
     },1000); 
 
+    //Finish posee el tiempo definido anteriormente por el usuario, cuando este termina limpia el cronometro y envia la promesa
     let Finish = setTimeout(()=>{
         segundos.innerHTML= ":00"; 
         minutos.innerHTML = "0"; 
         clearInterval(cronometro);
         console.log(`Se cancelo el cronometro`); 
-        contenedorAmarillo.style.backgroundColor = "#28F824";
-        
+        contenedorAmarillo.style.backgroundColor = "#28F824"; //Se redefine el color de la caja amrilla a verde
+
+        //Espera a que el usuario aprete el contendor para enviar la promesa
         contenedorRojo.addEventListener("click",(evento)=>{
             resolve(console.log(`Terminó el timer`));
             s=59; 
-            m=descansoMin; 
-            evento.stopPropagation(); 
+            m=descansoMin;  
         })
 
-    },(descansoMin*60000)); //Funcionó
+    },descanso); //Minutos y segundos definidos en el input 
     
-    btnOmitir.addEventListener("click",()=>{
+    btnOmitir.addEventListener("click",()=>{  //Si es necesario el cronometro de cada ejercicio se puede saltar y enviar la promesa
         segundos.innerHTML= ":00"; 
         minutos.innerHTML = "0";
         s=59; 
