@@ -38,7 +38,8 @@ const IniciarEntrenamiento = (promesa,rutina) =>{
     } else{
         TipoRutina = "Rutina2"
     }
-    
+        //Evita que se apague la pantalla en moviles
+        NoSleepScreen(); 
         //Configura la info del ejercicio 
         IniciarEjercicio(promesa,TipoRutina,descansoMin,descansoSeg,series,contenedorAmarillo,contenedorRojo);  
 
@@ -210,4 +211,10 @@ const IniciarCronometro = async (promesa,descanso, descansoSeg,descansoMin,conte
 const DefinirImagen = (promesa,TipoRutina,i)=>{
     let imagen = document.querySelector(".imagen-ejercicio"); 
     imagen.src = promesa[TipoRutina][i]["Img"];
+}
+
+const NoSleepScreen = () =>{
+    var noSleep = new NoSleep();
+    noSleep.enable(); 
+    document.removeEventListener('touchstart', enableNoSleep, false);
 }
