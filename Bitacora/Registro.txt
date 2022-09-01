@@ -32,6 +32,10 @@ Integracion de imagenes por ejercicio exitosa
 Integracion de ejercicios especiales
 31/08/22   14:36
 
+Integracion de readOnly para que no se apague en moviles
+Correccion de diferentes errores 
+31/08/22   00:06
+
 DESARROLLO COMPLETO 
 - PENDIENTE: INTEGRACIONES FUTURAS
-31/08/22   14:36
+31/08/22   00:06
