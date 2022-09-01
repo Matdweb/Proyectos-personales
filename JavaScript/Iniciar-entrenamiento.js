@@ -1,7 +1,9 @@
 let TipoRutina;   
 let msj; 
+let hablar; 
 
 const Empezar = () =>{ 
+
     let rutina =  document.querySelector(".rutina").value; 
 
     if(rutina!=1 && rutina!=2){
@@ -47,17 +49,17 @@ const IniciarEjercicio = async (promesa,TipoRutina,descansoMin,descansoSeg,serie
     let auxSeries = series; 
     let auxMin = descansoMin; 
     let auxSeg = descansoSeg; 
-    for(let i = 0; i <= promesa[TipoRutina].length; i++){
+    for(let i = 0; i < promesa[TipoRutina].length; i++){
         for (let serie=0; serie < series; serie++){ 
 
 
             //Decir la informacion al usuario
             msj = new SpeechSynthesisUtterance(); 
             msj.lang = 'es-ES';
-            let hablar = window.speechSynthesis;
+            hablar = window.speechSynthesis;
 
-            //Se define el timepo de descanso
-            if(promesa[TipoRutina][i]["Tiempo"]=="personalizado"){  //si el ejercicio tiene que tener un tiempo especifico
+            //Se define el tiempo de descanso
+            if(promesa[TipoRutina][i]["Tiempo"]!=undefined){  //si el ejercicio tiene que tener un tiempo especifico
                 descansoMin = promesa[TipoRutina][i]["min"]; 
                 descansoSeg = promesa[TipoRutina][i]["seg"];
                 console.log(descansoMin); 
@@ -116,13 +118,8 @@ const IniciarEjercicio = async (promesa,TipoRutina,descansoMin,descansoSeg,serie
             //Definir imagen
             DefinirImagen(promesa,TipoRutina,i); 
             
-
-            //Dice la informacion ya definida 
-            hablar.speak(msj)
-
             try{
-                await IniciarCronometro(promesa,descanso,descansoSeg,descansoMin,contenedorAmarillo,contenedorRojo);  
-                hablar.cancel(); 
+                await IniciarCronometro(promesa,descanso,descansoSeg,descansoMin,contenedorAmarillo,contenedorRojo,hablar,msj);   
             }catch(e){  
                 console.log(e);
             } 
@@ -131,6 +128,7 @@ const IniciarEjercicio = async (promesa,TipoRutina,descansoMin,descansoSeg,serie
         }
     }
     //Se termina el programa y vuelve a su estado orginal
+    contenedorRojo.innerHTML = `<h1>HAS TERMINADO</h1>`;
 }
 
 //Iniciar el coronometro 
@@ -139,7 +137,7 @@ let segundos;
 var s = 59;
 var m; 
 
-const IniciarCronometro = async (promesa,descanso, descansoSeg,descansoMin,contenedorAmarillo,contenedorRojo)=>{
+const IniciarCronometro = async (promesa,descanso, descansoSeg,descansoMin,contenedorAmarillo,contenedorRojo,hablar,msj)=>{
     let btnOmitir = document.querySelector(".omitir");  
 
     contenedorAmarillo.style.backgroundColor = "#F3F824"; //El contenedor amarillo se define con su color amarillo  
@@ -178,16 +176,19 @@ const IniciarCronometro = async (promesa,descanso, descansoSeg,descansoMin,conte
     let Finish = setTimeout(()=>{
         segundos.innerHTML= ":00"; 
         minutos.innerHTML = "0"; 
+
         clearInterval(cronometro);
         console.log(`Se cancelo el cronometro`); 
+
+        hablar.speak(msj);
+
         contenedorAmarillo.style.backgroundColor = "#28F824"; //Se redefine el color de la caja amrilla a verde
 
         //Espera a que el usuario aprete el contendor para enviar la promesa
         contenedorRojo.addEventListener("click",()=>{
             resolve(console.log(`Terminó el timer`));
-            s=59; 
+            s=descansoSeg; 
             m=descansoMin; 
-            contenedorRojo.innerHTML = `<h1>HAS TERMINADO</h1>`;
         })
 
     },descanso); //Minutos y segundos definidos en el input 
@@ -195,12 +196,12 @@ const IniciarCronometro = async (promesa,descanso, descansoSeg,descansoMin,conte
     btnOmitir.addEventListener("click",()=>{  //Si es necesario el cronometro de cada ejercicio se puede saltar y enviar la promesa
         segundos.innerHTML= ":00"; 
         minutos.innerHTML = "0";
-        s=59; 
+        s=descansoSeg; 
         m=descansoMin; 
         clearInterval(cronometro); 
         clearTimeout(Finish); 
         resolve(console.log(`Terminó el timer`));
-        contenedorRojo.innerHTML = `<h1>HAS TERMINADO</h1>`;
+        hablar.cancel();
     })
 }); 
 }

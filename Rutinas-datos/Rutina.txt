@@ -56,6 +56,10 @@
             "ejercicio": "CURL DE BICEPS",
             "CAD": "102" ,
             "Reps": "8 a 10",
+            "Tiempo": "personalizado",
+            "min": 1,
+            "seg": 0,
+            "series": 3,
             "Img": "https://eresfitness.com/wp-content/uploads/2019/05/Curl-alternado-con-mancuerna.jpg"
         }
     ] ,
