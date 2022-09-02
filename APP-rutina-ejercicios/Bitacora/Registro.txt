@@ -1,0 +1,41 @@
+Desarrollo de la section "Inciar-entrenamiento"
+23/08/22  23:02
+
+Reestructurazion del HTML 
+Integracion de los elementos dentro de un forms, a razon de que el input:submit funcione 
+24/08/22  15:47
+
+Desarrollo de la aplicaion 
+(obtencion de resulatos de promesa fetch funcional)
+24/08/22 22:53
+
+Desarrollo de la app, Fronted funcional
+25/08/22 22:01
+
+Continua el desarrollo de la aplicacion 
+(SetTimeout con un tiempo definido)
+29/08/22   00:58
+
+El cronometro dentro del ciclo for es 100% funcional
+29/08/22  12:43
+
+Funcionamiento de la APP, desarrollo completo 
+(Pendiente - integraciones)
+29/08/22  23:39
+
+Integracion del input segundos funcional
+Integracion de voz guia
+30/08/22  22:22
+
+Integracion de voz giau 100% funcional 
+Integracion de imagenes por ejercicio exitosa
+Integracion de ejercicios especiales
+31/08/22   14:36
+
+Integracion de readOnly para que no se apague en moviles
+Correccion de diferentes errores 
+31/08/22   00:06
+
+DESARROLLO COMPLETO 
+- PENDIENTE: INTEGRACIONES FUTURAS
+31/08/22   00:06
