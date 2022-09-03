@@ -5,5 +5,8 @@ Desarrollo del HTML y CSS
 Implematecion y desarrollo de nueva propuesta de interfaz usuario 
 02/09/22  22:07
 
+Desarrollo de los objetos "Producto" y "supermercado"
+03/09/22   15:20
+
 PENDIENTES: 
--DESARROLLO DE LA APP 
+-Metodos de cada Objeto 

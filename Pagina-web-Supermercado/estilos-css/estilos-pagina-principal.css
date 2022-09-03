@@ -1,9 +1,14 @@
 body{
+    top: 0;
+    left: 0;
+    margin: 0;
+}
+
+.container-body{
     width: 100vw; 
     min-height: 100vh;
     background: url(https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8c3VwZXJtZXJjYWRvfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60);
     backdrop-filter: blur(2px);
-    margin: 0;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 40% 70%;
@@ -93,14 +98,15 @@ path{
 }
 
 .contenedor-menu-funcion .container-funciones .funciones{
-    width: 450px;
-    height: 350px;
+    width: 80%;
+    height: 80%;
     background-color: rgba(167, 167, 167, 0.671);
     margin: auto;
     display: flex;
-    font-size: larger;
+    font-size: large;
     font-weight: bold;
     text-align: center;
+    justify-content: center;
     align-items: center;
 }
 
