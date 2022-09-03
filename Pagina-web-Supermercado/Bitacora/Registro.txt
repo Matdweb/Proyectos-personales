@@ -1,7 +1,9 @@
 Inicio del desarrllo de la APP supermercado
-DSesarrollo del HTML y CSS
+Desarrollo del HTML y CSS
 01/09/22
+
+Implematecion y desarrollo de nueva propuesta de interfaz usuario 
+02/09/22  22:07
 
 PENDIENTES: 
 -DESARROLLO DE LA APP 
-- UNIR LAS DOS SECCIONES
