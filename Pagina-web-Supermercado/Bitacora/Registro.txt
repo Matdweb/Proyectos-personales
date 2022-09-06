@@ -17,3 +17,7 @@ Desarrollo de el metodo "Ingresar nuevo porducto" funcional
 
 PENDIENTES: 
 -Metodos de cada Objeto 
+- Metodo IngrersarProducto
+   - PENDIENTE: 
+    - Validación del valor del atributo TOTAL, paraq ue no exceda las 200
+    - SetCantidad, debe ser incrementada cada vez que se ingresa un objeto nuevo al arreglo
