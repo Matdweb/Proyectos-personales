@@ -37,5 +37,12 @@ Correccion de diferentes errores
 31/08/22   00:06
 
 DESARROLLO COMPLETO 
+31/08/22   00:06
+
+Integracion exitosa de la libreria NoSleep al programa
+05/09/22    19:42
+
+DESARROLLO COMPLETO 
 - PENDIENTE: INTEGRACIONES FUTURAS
+   - Optimizacion
 31/08/22   00:06

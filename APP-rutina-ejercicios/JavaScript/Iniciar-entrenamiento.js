@@ -54,7 +54,7 @@ const IniciarEjercicio = async (promesa,TipoRutina,descansoMin,descansoSeg,serie
         for (let serie=0; serie < series; serie++){ 
 
 
-            //Decir la informacion al usuario
+            //Definicion de la funcion de hablar
             msj = new SpeechSynthesisUtterance(); 
             msj.lang = 'es-ES';
             hablar = window.speechSynthesis;
@@ -73,6 +73,7 @@ const IniciarEjercicio = async (promesa,TipoRutina,descansoMin,descansoSeg,serie
                 series = auxSeries; 
             }//sino se asigna el del usuario
 
+            //Se define entonces el descanso a utilizar
             descanso = (descansoMin *60000) + (descansoSeg *1000);
 
             contenedorAmarillo.innerHTML = `<h1>Ejercicio: ${promesa[TipoRutina][i]["ejercicio"]}</h1>
@@ -138,7 +139,8 @@ let segundos;
 var s = 59;
 var m; 
 
-const IniciarCronometro = async (promesa,descanso, descansoSeg,descansoMin,contenedorAmarillo,contenedorRojo,hablar,msj)=>{
+const IniciarCronometro = async (descanso, descansoSeg,descansoMin,contenedorAmarillo,contenedorRojo,hablar,msj)=>{
+
     let btnOmitir = document.querySelector(".omitir");  
 
     contenedorAmarillo.style.backgroundColor = "#F3F824"; //El contenedor amarillo se define con su color amarillo  
@@ -175,24 +177,23 @@ const IniciarCronometro = async (promesa,descanso, descansoSeg,descansoMin,conte
 
     //Finish posee el tiempo definido anteriormente por el usuario, cuando este termina limpia el cronometro y envia la promesa
     let Finish = setTimeout(()=>{
-        segundos.innerHTML= ":00"; 
-        minutos.innerHTML = "0"; 
+            segundos.innerHTML= ":00"; 
+            minutos.innerHTML = "0"; 
 
-        clearInterval(cronometro);
-        console.log(`Se cancelo el cronometro`); 
+            clearInterval(cronometro);
+            console.log(`Se cancelo el cronometro`); 
 
-        hablar.speak(msj);
+            hablar.speak(msj);
+            contenedorAmarillo.style.backgroundColor = "#28F824"; //Se redefine el color de la caja amrilla a verde
 
-        contenedorAmarillo.style.backgroundColor = "#28F824"; //Se redefine el color de la caja amrilla a verde
-
-        //Espera a que el usuario aprete el contendor para enviar la promesa
-        contenedorRojo.addEventListener("click",()=>{
-            resolve(console.log(`Terminó el timer`));
-            s=descansoSeg; 
-            m=descansoMin; 
+            //Espera a que el usuario aprete el contendor para enviar la promesa
+            contenedorRojo.addEventListener("click",()=>{
+                resolve(console.log(`Terminó el timer`));
+                s=descansoSeg; 
+                m=descansoMin; 
         })
 
-    },descanso); //Minutos y segundos definidos en el input 
+    },descanso); //Minutos y segundos definidos anteriomente
     
     btnOmitir.addEventListener("click",()=>{  //Si es necesario el cronometro de cada ejercicio se puede saltar y enviar la promesa
         segundos.innerHTML= ":00"; 
@@ -204,7 +205,7 @@ const IniciarCronometro = async (promesa,descanso, descansoSeg,descansoMin,conte
         resolve(console.log(`Terminó el timer`));
         hablar.cancel();
     })
-}); 
+   });
 }
 
 //Imagenes - funciones
@@ -216,5 +217,4 @@ const DefinirImagen = (promesa,TipoRutina,i)=>{
 const NoSleepScreen = () =>{
     var noSleep = new NoSleep();
     noSleep.enable(); 
-    document.removeEventListener('touchstart', enableNoSleep, false);
 }
