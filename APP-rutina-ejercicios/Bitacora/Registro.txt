@@ -42,6 +42,9 @@ DESARROLLO COMPLETO
 Integracion exitosa de la libreria NoSleep al programa
 05/09/22    19:42
 
+Actualizacion del numero de repeticiones Semana3 de entrenamiento
+06/09/22   12:17
+
 DESARROLLO COMPLETO 
 - PENDIENTE: INTEGRACIONES FUTURAS
    - Optimizacion
