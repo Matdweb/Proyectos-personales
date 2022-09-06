@@ -27,7 +27,6 @@
 }
 
 .contenedor-menu-funcion .container-funciones .container-forms-nuevo-producto form input{
-    border: none;
     margin-bottom: 5px;
     height: 25px;
     border-radius: 5px;
@@ -37,8 +36,10 @@
     font-weight: bold;
 }
 
-.contenedor-menu-funcion .container-funciones .container-forms-nuevo-producto form input:focus{
-    border: 1px solid #000;
+.contenedor-menu-funcion .container-funciones .container-forms-nuevo-producto form input:focus-visible{
+    outline: none;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    border-right: 1px solid rgba(255, 255, 255);
     background: rgb(9,9,121);
     background: linear-gradient(0deg, rgba(9,9,121,0.5130427170868348) 14%, rgba(0,0,0,0.5214460784313726) 100%);
 }
@@ -46,7 +47,7 @@
 
 .contenedor-menu-funcion .container-funciones .container-forms-nuevo-producto form label{
     margin-left: 40%;
-    margin-top: -18px;
+    margin-top: -30px;
 }
 
 .contenedor-menu-funcion .container-funciones .container-forms-nuevo-producto button{

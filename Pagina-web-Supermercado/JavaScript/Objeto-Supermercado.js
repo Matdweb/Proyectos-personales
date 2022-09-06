@@ -21,11 +21,22 @@ class Supermercado{
     }
 
     //metodos Supermercado
-    IngresaProducto(){
-        let nuevoProducto = FormsNuevoProducto(); 
-        let Producto = new Producto(nuevoProducto[1],nuevoProducto[2],nuevoProducto[3],nuevoProducto[4],nuevoProducto[5],nuevoProducto[6],nuevoProducto[7],nuevoProducto[8]);
-        productos.push(Producto); 
-        console.log(Producto);
+    IngresarProducto(){
+        FormsNuevoProducto()
+        let btnRegistrar = document.querySelector(".btn-registrar");
+        btnRegistrar.addEventListener("click",()=>{
+            let infoProducto = RegistrarDatos(); 
+            let nuevoProducto = new Producto(infoProducto[1],infoProducto[0],infoProducto[2],infoProducto[3],infoProducto[4],infoProducto[5],infoProducto[6],infoProducto[7]); 
+            productos.push(nuevoProducto); 
+            console.log(productos);
+        })
+    }
+
+    eliminarProductoPorCodigo(){
+        
     }
 
 }
+
+const supermercado  = new Supermercado(0,200); 
+supermercado.IngresarProducto(); 

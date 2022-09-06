@@ -12,5 +12,8 @@ Desarrollo del metodo Ingresar producto en la la clase supermercado
 Creacion de documento Funciones-metodos-supermercado.js para la estructurazion de las funciones del programa
 05/09/22   23:22
 
+Desarrollo de el metodo "Ingresar nuevo porducto" funcional
+06/09/22   13:21
+
 PENDIENTES: 
 -Metodos de cada Objeto 

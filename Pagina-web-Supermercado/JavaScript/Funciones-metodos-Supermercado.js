@@ -1,6 +1,6 @@
 let containerFunciones = document.querySelector(".container-funciones"); 
 
-const FormsNuevoProducto = () =>{
+const FormsNuevoProducto = async() =>{
     containerFunciones.innerHTML = `<div class="container-forms-nuevo-producto">
                                         <h3>NUEVO PRODUCTO: Ingresar</h3>
                                         <form>
@@ -22,15 +22,11 @@ const FormsNuevoProducto = () =>{
                                             <input class="existencia-min"  type="number">
                                         </form>
                                         <button class="btn-registrar">REGISTRAR</button>
-                                    </div>`;
- 
-    return RegistrarDatos(); 
+                                    </div>`; 
 }
 
 const RegistrarDatos = ()=>{
-    let btnRegistrar = document.querySelector(".btn-registrar");
     let DatosProducto = [];  
-    btnRegistrar.addEventListener("click",()=>{
         let nombre = document.querySelector(".nombre").value;
         DatosProducto.push(nombre);
         let codigo = document.querySelector(".codigo").value;
@@ -48,11 +44,11 @@ const RegistrarDatos = ()=>{
         let existenciaMin = document.querySelector(".existencia-min").value;
         DatosProducto.push(existenciaMin);
         console.log(DatosProducto); 
-    })
-    limpiarContainer();
-    return DatosProducto; 
+        limpiarContainer();
+        return DatosProducto;
 }
 
 const limpiarContainer=()=>{
-    containerFunciones.innHTML = `<div class="funciones">BIENVENIDO AL SUPER MERCADO DE <br> Mat_dweb</div>`; 
+    containerFunciones.innerHTML = `<div class="funciones">BIENVENIDO AL SUPER MERCADO DE <br> Mat_dweb</div>`; 
 }
+
