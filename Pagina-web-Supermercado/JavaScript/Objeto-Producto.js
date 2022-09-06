@@ -11,7 +11,7 @@ class Producto{
         this.existenciaMinima = existenciaMinima; 
     }
 
-    setNombre (nombre_){
+    setNombre(nombre_){
         this.nombre = nombre_; 
     }
 

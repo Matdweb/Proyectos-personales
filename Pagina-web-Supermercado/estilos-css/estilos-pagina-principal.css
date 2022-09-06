@@ -67,7 +67,7 @@ path{
     color: #fff;
     text-align: center;
     cursor: pointer;
-    margin-top: 3px;
+    margin-top: 4px;
 }
 
 .contenedor-menu-funcion .menu label{
@@ -81,11 +81,21 @@ path{
 
 .contenedor-menu-funcion .menu .opciones{
     width: 100%;
-    height: auto;
-    background-color: rgb(156, 156, 156);
+    height: fit-content;
+    background-color: rgb(158, 156, 156);
+    text-align: start;
     color: #fff;
-    text-align: center;
     transition: height 2s ease-in-out;
+}
+
+.opcion{
+    cursor: pointer;
+    font-size: 1rem; 
+    margin-left: 5px;
+}
+
+.opcion:hover{
+    color: rgb(187, 187, 187);
 }
 
 .contenedor-menu-funcion .menu:hover{
@@ -108,15 +118,6 @@ path{
     text-align: center;
     justify-content: center;
     align-items: center;
-}
-
-.opcion{
-    cursor: pointer;
-    font-size: 1rem 
-}
-
-.opcion:hover{
-    color: rgb(104, 104, 104);
 }
 
 @keyframes EfectoLinea {

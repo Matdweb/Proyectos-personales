@@ -8,5 +8,9 @@ Implematecion y desarrollo de nueva propuesta de interfaz usuario
 Desarrollo de los objetos "Producto" y "supermercado"
 03/09/22   15:20
 
+Desarrollo del metodo Ingresar producto en la la clase supermercado 
+Creacion de documento Funciones-metodos-supermercado.js para la estructurazion de las funciones del programa
+05/09/22   23:22
+
 PENDIENTES: 
 -Metodos de cada Objeto 
