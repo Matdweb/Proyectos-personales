@@ -3,10 +3,8 @@ let opciones = document.querySelector(".opciones");
 
 checkbox.addEventListener("click",()=>{
     if(checkbox.checked){
-        opciones.style.removeProperty('display');  
-        opciones.style.marginTop = "5px";
-        opciones.style.padding = "5px 0 5px 0";
+        opciones.style.height = "fit-content"; 
     }else{
-        opciones.style.display = "none";
+        opciones.style.height = "0";
     }
 })

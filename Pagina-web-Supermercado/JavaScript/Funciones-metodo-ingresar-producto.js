@@ -7,7 +7,7 @@ const FormsNuevoProducto = async() =>{
                                             <p>Nombre del nuevo producto:</p>
                                             <input class="nombre"  type="text">
                                             <p>Codigo:</p>
-                                            <input class="codigo"  type="text">
+                                            <input value="111AA" class="codigo"  type="text">
                                             <p>Precio Base:</p>
                                             <input class="precio"  type="number">
                                             <p>Porcentaje de Ganancia:</p>

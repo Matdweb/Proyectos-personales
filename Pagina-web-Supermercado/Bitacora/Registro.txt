@@ -19,6 +19,11 @@ funcionamiento exitoso del metodo IngresarProducto
 Desarrollo del metodo eliminarPorCodigo()
 07/09/22   00:50
 
+fucionamiento del metodo eliminarPorCodigo() 
+Desarrollo del metodo obtenerProducMayorValor()
+Desarrollo de la funcion productosDefault();
+07/09/22   14:54
+
 PENDIENTES: 
 -Metodos de cada Objeto 
 

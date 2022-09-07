@@ -80,13 +80,13 @@ path{
 }
 
 .contenedor-menu-funcion .menu .opciones{
-    display: none;
     width: 100%;
-    height: fit-content;
+    height: 0;
     background-color: rgb(158, 156, 156);
     text-align: start;
     color: #fff;
-    transition: height 2s ease-in-out;
+    transition: height 2s ease-out;
+    overflow: hidden;
 }
 
 .opcion{
