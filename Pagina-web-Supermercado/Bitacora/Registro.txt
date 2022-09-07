@@ -15,9 +15,10 @@ Creacion de documento Funciones-metodos-supermercado.js para la estructurazion d
 Desarrollo de el metodo "Ingresar nuevo porducto" funcional
 06/09/22   13:21
 
+funcionamiento exitoso del metodo IngresarProducto
+Desarrollo del metodo eliminarPorCodigo()
+07/09/22   00:50
+
 PENDIENTES: 
 -Metodos de cada Objeto 
-- Metodo IngrersarProducto
-   - PENDIENTE: 
-    - Validación del valor del atributo TOTAL, paraq ue no exceda las 200
-    - SetCantidad, debe ser incrementada cada vez que se ingresa un objeto nuevo al arreglo
+

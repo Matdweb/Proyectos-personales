@@ -80,6 +80,7 @@ path{
 }
 
 .contenedor-menu-funcion .menu .opciones{
+    display: none;
     width: 100%;
     height: fit-content;
     background-color: rgb(158, 156, 156);
@@ -105,6 +106,15 @@ path{
 .contenedor-menu-funcion .container-funciones{
     grid-column: 2;
     display: flex;
+}
+
+.contenedor-menu-funcion .container-funciones .texto-final{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .contenedor-menu-funcion .container-funciones .funciones{

@@ -44,11 +44,19 @@ const RegistrarDatos = ()=>{
         let existenciaMin = document.querySelector(".existencia-min").value;
         DatosProducto.push(existenciaMin);
         console.log(DatosProducto); 
-        limpiarContainer();
         return DatosProducto;
+}
+
+const TerminarFuncion = (texto) =>{
+    containerFunciones.innerHTML = texto + `<p>Haz click al texto para salir</p></div>`; 
+    containerFunciones.firstChild.addEventListener("click",()=>{
+         limpiarContainer();
+    }); 
 }
 
 const limpiarContainer=()=>{
     containerFunciones.innerHTML = `<div class="funciones">BIENVENIDO AL SUPER MERCADO DE <br> Mat_dweb</div>`; 
 }
+
+
 
