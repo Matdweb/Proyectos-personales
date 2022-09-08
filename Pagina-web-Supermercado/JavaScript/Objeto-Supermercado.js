@@ -24,7 +24,8 @@ class Supermercado{
     //metodos Supermercado
     IngresarDefault(codigo,nombre,precioBase,porcentajeGanancia,cantidadVendida,existencia,pesoUnitario,existenciaMinima){
         let productoDefault = new Producto(codigo,nombre,precioBase,porcentajeGanancia,cantidadVendida,existencia,pesoUnitario,existenciaMinima);
-        productos.push(ProductosDefault);
+        this.setCantidad(this.getCantidad()+1);
+        productos.push(productoDefault);
     }
 
     IngresarProducto(){
@@ -63,7 +64,7 @@ class Supermercado{
                     if(producto.getCodigo()==codigoEliminar){
                         productos.splice(i,1);
                         texto = `<div class="texto-final"><h2>Se elimino el producto de codigo ${producto["codigo"]} con exito</h2>`;
-                        this.setCantidad((this.getCantidad)-1);
+                        this.setCantidad((this.getCantidad())-1);
                         i++;
                     }else{
                         i++; 
@@ -84,7 +85,6 @@ class Supermercado{
         let max = [0,0,0]; 
         for(var producto of productos){
             if(producto.getPrecioBase()>=max[0]){
-                console.log(producto.getPrecioBase());
                 max = [producto.getPrecioBase(),producto.getNombre(),producto.getCodigo()]; 
             }
         }
@@ -93,19 +93,48 @@ class Supermercado{
         TerminarFuncion(texto);
     }
 
+    obtenerProducConMayorExistencia(){
+        let mayorExistencia = [0,0,0]; 
+        for(var producto of productos){
+            if(producto.getExistencia()>=mayorExistencia[0]){
+                mayorExistencia = [producto.getExistencia(),producto.getNombre(),producto.getCodigo()]; 
+            }
+        }
+        console.log(mayorExistencia);
+        texto = `<div class="texto-final"><h2>EL producto de mayor exitencia es ${mayorExistencia[1]} de codigo ${mayorExistencia[2]}</h2>`;
+        TerminarFuncion(texto);
+    }
+
+    ordenarProductPorCodigo(){
+        let aux;
+        for(var i=0; i<=((productos.length)-1); i++){
+            for(var j=0; j<=((productos.length)-1); j++){
+                if(productos[j].getCodigo()>productos[j+1].getCodigo()){
+                    aux = productos[j]
+                    productos[j] = productos[j+1]; 
+                    productos[j+1] = aux; 
+                }
+            }
+        }
+          texto = `<div class="texto-final"><h2>Los productos han sido ordenados por su codigo con exito</h2>`;
+          TerminarFuncion(texto);
+          console.log(productos);
+    }
+
 }
 
 const supermercado  = new Supermercado(0,200); 
 
 const ProductosDefault = () =>{
-    IngresarDefault('111AA','Arroz',800,0.15,90,200,60,400);
-    IngresarDefault('2q124','Galletas',1000,0.25,95,100,50,900);
-    IngresarDefault('12456','Macarrones',900,0.25,90,200,40,700);
-    IngresarDefault('8457u7','Azucar',5000,0.15,90,200,70,800);
-    IngresarDefault('67f363','Frijoles',500,0.25,90,100,30,100);
-    IngresarDefault('v4566','Jugo de Naranja',2000,0.25,90,70,60,400);
-    IngresarDefault('54f5yv','Harina',700,0.15,90,80,60,200);
-    IngresarDefault('3654vb','Bananos',900,0.25,90,20,90,100);
+    supermercado.IngresarDefault('11100','Arroz',800,0.15,90,95,60,400);
+    supermercado.IngresarDefault('20124','Galletas',1000,0.25,95,100,50,900);
+    supermercado.IngresarDefault('12456','Macarrones',900,0.25,90,45,40,700);
+    supermercado.IngresarDefault('845707','Azucar',5000,0.15,70,89,67,800);
+    supermercado.IngresarDefault('670363','Frijoles',500,0.25,50,100,30,100);
+    supermercado.IngresarDefault('04566','Jugo de Naranja',2000,0.25,100,71,60,400);
+    supermercado.IngresarDefault('540500','Harina',700,0.15,80,80,60,70);
+    supermercado.IngresarDefault('365400','Bananos',900,0.25,90,20,90,100);
+    console.log(productos);
 }
 
 ProductosDefault();

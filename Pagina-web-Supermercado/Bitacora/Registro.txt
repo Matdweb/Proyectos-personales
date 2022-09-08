@@ -24,6 +24,11 @@ Desarrollo del metodo obtenerProducMayorValor()
 Desarrollo de la funcion productosDefault();
 07/09/22   14:54
 
+Funcionamineto de la funcion ProductosDefault() con exito 
+Desarrollo y funconamiento exitoso del metodo obtenerProducConMayorExistencia()  
+Desarrollo del metodo ordenarProductoPorCodigo()
+07/09/22   21:12
+
 PENDIENTES: 
 -Metodos de cada Objeto 
 

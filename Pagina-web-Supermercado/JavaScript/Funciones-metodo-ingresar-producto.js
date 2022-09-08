@@ -57,6 +57,3 @@ const TerminarFuncion = (texto) =>{
 const limpiarContainer=()=>{
     containerFunciones.innerHTML = `<div class="funciones">BIENVENIDO AL SUPER MERCADO DE <br> Mat_dweb</div>`; 
 }
-
-
-
