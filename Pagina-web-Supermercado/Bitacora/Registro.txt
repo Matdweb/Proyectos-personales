@@ -29,6 +29,15 @@ Desarrollo y funconamiento exitoso del metodo obtenerProducConMayorExistencia()
 Desarrollo del metodo ordenarProductoPorCodigo()
 07/09/22   21:12
 
+Desarrollo del metodo imprimirTodosLosProductos(), funcionamiento exitoso
+Desarrollo del metodo cantDeProductosBajosDeExistencia(), funcionamiento exitoso
+Desarrollo del metodo imprimirProductosBajosDeExistencia(), funcionamiento exitoso
+Desarrollo del metodo cuantosKgsSeHanVendidoEnGeneral(), funcionamiento exitoso
+Desarrollo del metodo cuantosKgsSeHanVendidoDelProducto(), funcionamiento exitoso
+Desarrollo del metodo imprimProductosQueSonMasCostososQue(), funcionamiento exitoso
+Restructurazion de documentos ocn funciones de motodos del obejto supermercado, de varios documentos o solo dos que alemacenan las funiones. Existen subdiviones dentro de los documentos para su organizacion interna
+08/09/22   19:35
+
 PENDIENTES: 
 -Metodos de cada Objeto 
-
+- Revision de los metodos asignados a cada funcion en "Funciones-metodos-supermercado.js"

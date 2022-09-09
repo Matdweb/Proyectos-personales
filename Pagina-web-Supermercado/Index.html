@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="estilos-css/estilos-pagina-principal.css">
     <link rel="stylesheet" href="estilos-css/estilos-forms-nuevo-producto.css">
     <link rel="stylesheet" href="estilos-css/estilos-eliminarXcodigo.css">
+    <link rel="stylesheet" href="estilos-css/estilos-imprimir-productos.css">
     <title>Supermercado - Mat_dweb</title>
 </head>
 <body>
@@ -29,12 +30,12 @@
                             <h1 class="opcion" onclick="supermercado.obtenerProducMayorValor()">3. Obtener producto de mayor valor</h1>
                             <h1 class="opcion" onclick="supermercado.obtenerProducConMayorExistencia()">4. Obtener producto con mayor existencia</h1>
                             <h1 class="opcion" onclick="supermercado.ordenarProductPorCodigo()">5. Ordenar los productos por codigo</h1>
-                            <h1 class="opcion">6. Ingresar nuevo producto</h1>
-                            <h1 class="opcion">7. Ingresar nuevo producto</h1>
-                            <h1 class="opcion">8. Ingresar nuevo producto</h1>
-                            <h1 class="opcion">9. Ingresar nuevo producto</h1>
-                            <h1 class="opcion">10. Ingresar nuevo producto</h1>
-                            <h1 class="opcion">11. Ingresar nuevo producto</h1>
+                            <h1 class="opcion" onclick="supermercado.imprimirTodosLosProductos()">6. Imprimir todos los productos</h1>
+                            <h1 class="opcion" onclick="supermercado.cantDeProductosBajosDeExistencia()">7. Cantidad de prodcutos de baja existencia</h1>
+                            <h1 class="opcion" onclick="supermercado.imprimirProductosBajosDeExistencia()">8. Cuadro de productos bajos de exitenci</h1>
+                            <h1 class="opcion" onclick="supermercado.cuantosKgsSeHanVendidoEnGeneral()">9. Cuantos kgs se han vendido en total</h1>
+                            <h1 class="opcion" onclick="supermercado.cuantosKgsSeHanVendidoDelProducto()">10. Cuantos kgs se han vendido de un producto</h1>
+                            <h1 class="opcion" onclick="supermercado.imprimProductosQueSonMasCostososQue()">11. Productos mas costos que</h1>
                             <h1 class="opcion">12. Ingresar nuevo producto</h1>
                             <h1 class="opcion">13. Ingresar nuevo producto</h1>
                             <h1 class="opcion">14. Ingresar nuevo producto</h1>
@@ -55,8 +56,8 @@
         </section>
     </section>
     <script src="JavaScript/Funciones-metodo-ingresar-producto.js"></script>
+    <script src="JavaScript/Funciones-metodos-supermercado.js"></script>
     <script src="JavaScript/Objeto-Producto.js"></script>
-    <script src="JavaScript/Funciones-metodo-eliminarXcodigo.js"></script>
     <script src="JavaScript/Objeto-Supermercado.js"></script>
     <script src="JavaScript/boton-opciones.js"></script>
 </body>
