@@ -1,5 +1,6 @@
 let containerFunciones = document.querySelector(".container-funciones"); 
 
+// metodo - ingresarProducto
 const FormsNuevoProducto = async() =>{
     containerFunciones.innerHTML = `<div class="container-forms-nuevo-producto">
                                         <h3>NUEVO PRODUCTO: Ingresar</h3>
@@ -48,7 +49,7 @@ const RegistrarDatos = ()=>{
 }
 
 const TerminarFuncion = (texto) =>{
-    containerFunciones.innerHTML = texto + `<p>Haz click al texto para salir</p></div>`; 
+    containerFunciones.innerHTML = `<div class="texto-final"><h2>${texto}</h2><p>Haz click al texto para salir</p></div>`; 
     containerFunciones.firstChild.addEventListener("click",()=>{
          limpiarContainer();
     }); 
