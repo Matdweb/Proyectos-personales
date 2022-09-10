@@ -261,20 +261,97 @@ class Supermercado{
         }
     }
 
-    cuantasUnidadesSeHanVendidoDelProducto(){}
+    cuantasUnidadesSeHanVendidoDelProducto(){
+        if(this.getCantidad()<=this.getTotal() && this.getCantidad()>0){
+            let cuadricula;
+            texto = `Digite el codigo del producto que desea saber cuantas unidades han sido vendidas:`; 
+            formsPedirProducto(texto);
 
-    costoDelInventario(){}  //devuelve el costo total de los productos en existencia en el
-     //supermercado, es decir, la suma de los precios de costo ponderados por la cantidad en existencia de cada producto.
+            let btnPedirProducto = document.querySelector(".btn-eliminar"); 
+            btnPedirProducto.addEventListener("click",()=>{
+                try {
+                    let prod = AveriguarProductoPorCodigo(RegistrarCodigo());
+                    texto = `Se han vendido un total de ${prod.getCantidadVendida()} unidades del producto ${prod.getNombre()}`;
+                    TerminarFuncion(texto);
+                } catch (e) {
+                    texto = `Lo sentimos no se ha encontrado ningun producto con ese codigo`;
+                    TerminarFuncion(texto);
+                    console.log(e);
+                }
+            });
 
-     costoDeLasVentas(){}  //Cuanto dinero se ha vendido 
+        }else{
+            texto = `Lo sentimos no hay productos registrados por ahora`;
+            TerminarFuncion(texto);
+        }
+    }
 
-     valorDeLasVentas(){}  //Cuanto dinero ha recibido el supermercado por cada venta 
+    costoDelInventario(){   //costo de todos los productos que hay en el supermecado
+        if(this.getCantidad()<=this.getTotal() && this.getCantidad()>0){
+            let costoInvt = 0;
+            for(var producto of productos){
+                costoInvt += (getCostoProducto(producto) * producto.getExistencia());
+            }
+            texto = `El costo total del inventario actual (lo que invirtio el supermercado) es de ${costoInvt}`;
+            TerminarFuncion(texto);
+        }else{
+            texto = `Lo sentimos no hay productos registrados por ahora`;
+            TerminarFuncion(texto);
+        }
+    }  
+ 
+     costoDeLasVentas(){   //cuanto le ha costado en total al super los productos que se han vendido 
+        if(this.getCantidad()<=this.getTotal() && this.getCantidad()>0){
+            let costoVent = 0;
+            for(var producto of productos){
+                costoVent += getCostoProducto(producto) * producto.getCantidadVendida();
+            }
+            texto = `El costo total de los productos vendidos (lo que invirtio el supermercado en ventas) es de ${costoVent}`;
+            TerminarFuncion(texto);
+        }else{
+            texto = `Lo sentimos no hay productos registrados por ahora`;
+            TerminarFuncion(texto);
+        }
+     } 
 
-     ganaciaDelSuperMercadoPorVentas(){}
+     valorDeLasVentas(){  //Cuanto en valor de precio de venta se ha vendido 
+        if(this.getCantidad()<=this.getTotal() && this.getCantidad()>0){
+            let valorVentas = 0;
+            for(var producto of productos){
+                valorVentas += (producto.getPrecioBase() * producto.getCantidadVendida());
+            }
+            texto = `El valor total de los productos vendidos (precio de venta * ventas) es de ${valorVentas}`;
+            TerminarFuncion(texto);
+        }else{
+            texto = `Lo sentimos no hay productos registrados por ahora`;
+            TerminarFuncion(texto);
+        }
+    }   
 
-     graficoDeVentasDeLos15ProductsMasVendidos(){}
+     ganaciaDelSuperMercadoPorVentas(){  //Cuanto dinero ha recibido el supermercado por cada venta 
+        if(this.getCantidad()<=this.getTotal() && this.getCantidad()>0){
+            let gananVentas = 0;
+            for(var producto of productos){
+                gananVentas += (getGananciaProducto(producto) * producto.getCantidadVendida());
+            }
+            texto = `La ganancia total de los productos vendidos (ganancia de ventas para el supermercado) es de ${gananVentas}`;
+            TerminarFuncion(texto);
+        }else{
+            texto = `Lo sentimos no hay productos registrados por ahora`;
+            TerminarFuncion(texto);
+        }
+    }
 
-     graficoDeVentasDeLos15ProductsMenosVendidos(){}
+     graficoDeVentasDeLos5ProductsMasVendidos(){
+        if(this.getCantidad()<=this.getTotal() && this.getCantidad()>0){
+            
+        }else{
+            texto = `Lo sentimos no hay productos registrados por ahora`;
+            TerminarFuncion(texto);
+        }
+     }
+
+     graficoDeVentasDeLos5ProductsMenosVendidos(){}
 
      promedioDeLosPreciosDeVenta (){}
 
