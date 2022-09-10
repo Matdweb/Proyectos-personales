@@ -9,8 +9,6 @@ const formsEliminarXcodigo = () =>{
                                     </div>`; 
 }
 
-//metodo eliminar por codigo  metodo cuantosKgsSeHanVendidoDelProducto()  
-//metodo imprimProductosQueSonMasCostososQue()
 const RegistrarCodigo = ()=>{
     return document.querySelector(".codigo-eliminar").value; 
 }
@@ -49,8 +47,7 @@ const cuadriculaBajaExistencia = () =>{
     return document.querySelector(".cuadricula-imprimir-prod");
 }
 
-//metodo cuantos kg se han vendido de un producto  
-//metodo imprimProductosQueSonMasCostososQue()
+//metodo cuantos kg se han vendido de un producto   //metodo imprimProductosQueSonMasCostososQue()
 const formsPedirProducto = (texto) =>{
     containerFunciones.innerHTML = `<div class="container-eliminar container-pedir-producto">
                                         <h2>PRODUCTO</h2>
@@ -78,7 +75,6 @@ const cuadriculaImprimirProductos = (nombreProducto) =>{
     return document.querySelector(".cuadricula-imprimir-prod");
 }
 
-//metodo imprimProductosQueSonMasCostososQue()
 const AveriguarProductoPorCodigo = (codigoProd) =>{
     for(var producto of productos){
         if(producto.getCodigo()==codigoProd){

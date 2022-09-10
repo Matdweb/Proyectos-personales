@@ -35,8 +35,7 @@ Desarrollo del metodo imprimirProductosBajosDeExistencia(), funcionamiento exito
 Desarrollo del metodo cuantosKgsSeHanVendidoEnGeneral(), funcionamiento exitoso
 Desarrollo del metodo cuantosKgsSeHanVendidoDelProducto(), funcionamiento exitoso
 Desarrollo del metodo imprimProductosQueSonMasCostososQue(), funcionamiento exitoso
-Restructurazion de documentos ocn funciones de motodos del obejto supermercado, de varios documentos a solo dos que alemacenan las funiones. 
--Existen subdiviones dentro de los documentos para su organizacion interna
+Restructurazion de documentos ocn funciones de motodos del obejto supermercado, de varios documentos o solo dos que alemacenan las funiones. Existen subdiviones dentro de los documentos para su organizacion interna
 08/09/22   19:35
 
 PENDIENTES: 
