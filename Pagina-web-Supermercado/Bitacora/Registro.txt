@@ -42,5 +42,14 @@ Restructurazion de documentos ocn funciones de motodos del obejto supermercado, 
 Revision de los metodos asignados a cada funcion en "Funciones-metodos-supermercado.js"
 09/09/22  18:55
 
+Desarrollo del metodo cuantasUnidadesSeHanVendidoDelProducto(), funcionamiento exito
+Desarrollo del metodo costoDelInventario(), funcionamiento exito
+Desarrollo del metodo costoDeLasVentas(), funcionamiento exito
+Desarrollo del metodo valorDeLasVentas(), funcionamiento exito
+Desarrollo del metodo ganaciaDelSuperMercadoPorVentas(), funcionamiento exito
+Inicio del desarrollo del metodo graficoDeVentasDeLos5ProductsMasVendidos()
+Desarrollo de nuevos metodos
+09/09/22   22:46
+
 PENDIENTES: 
 -Metodos de cada Objeto 

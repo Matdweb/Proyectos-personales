@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="estilos-css/estilos-forms-nuevo-producto.css">
     <link rel="stylesheet" href="estilos-css/estilos-eliminarXcodigo.css">
     <link rel="stylesheet" href="estilos-css/estilos-imprimir-productos.css">
+    <link rel="stylesheet" href="estilos-css/estilos-grafico-productos.css">
     <title>Supermercado - Mat_dweb</title>
 </head>
 <body>
@@ -36,11 +37,11 @@
                             <h1 class="opcion" onclick="supermercado.cuantosKgsSeHanVendidoEnGeneral()">9. Cuantos kgs se han vendido en total</h1>
                             <h1 class="opcion" onclick="supermercado.cuantosKgsSeHanVendidoDelProducto()">10. Cuantos kgs se han vendido de un producto</h1>
                             <h1 class="opcion" onclick="supermercado.imprimProductosQueSonMasCostososQue()">11. Productos mas costos que</h1>
-                            <h1 class="opcion">12. Ingresar nuevo producto</h1>
-                            <h1 class="opcion">13. Ingresar nuevo producto</h1>
-                            <h1 class="opcion">14. Ingresar nuevo producto</h1>
-                            <h1 class="opcion">15. Ingresar nuevo producto</h1>
-                            <h1 class="opcion">16. Ingresar nuevo producto</h1>
+                            <h1 class="opcion" onclick="supermercado.cuantasUnidadesSeHanVendidoDelProducto()">12. Cuantas unidades se han vendido de cierto producto</h1>
+                            <h1 class="opcion" onclick="supermercado.costoDelInventario()">13. Costo total del inventario</h1>
+                            <h1 class="opcion" onclick="supermercado.costoDeLasVentas()">14. Costo de las ventas</h1>
+                            <h1 class="opcion" onclick="supermercado.valorDeLasVentas()">15. Valor de las ventas</h1>
+                            <h1 class="opcion" onclick="supermercado.ganaciaDelSuperMercadoPorVentas()">16. Ganancia del supermercado por ventas</h1>
                             <h1 class="opcion">17. Ingresar nuevo producto</h1>
                             <h1 class="opcion">18. Ingresar nuevo producto</h1>
                             <h1 class="opcion">19. Ingresar nuevo producto</h1>
@@ -49,7 +50,30 @@
                     </div>
                 </div>
                 <div class="container-funciones">
-                    <div class="funciones">BIENVENIDO AL SUPER MERCADO DE <br> Mat_dweb</div>
+                    <!-- <div class="funciones">BIENVENIDO AL SUPER MERCADO DE <br> Mat_dweb</div> -->
+                    <div class="container-grafico-prod">
+                        <div class="container-grafico">
+                            <div class="container-barras">
+                                <div class="barra-1"></div>
+                                <div class="barra-2"></div>
+                                <div class="barra-3"></div>
+                                <div class="barra-4"></div>
+                                <div class="barra-5"></div>
+                            </div>
+                            <div class="linea-numeros"></div>
+                            <div class="numeros-1">100</div>
+                            <div class="numeros-2">100</div>
+                            <div class="numeros-3">100</div>
+                            <div class="numeros-4">100</div>
+                            <div class="numeros-5">100</div>
+                            <div class="linea-prod-nombres"></div>
+                            <div class="prod-nombre-1">producto</div>
+                            <div class="prod-nombre-2">producto</div>
+                            <div class="prod-nombre-3">producto</div>
+                            <div class="prod-nombre-4">producto</div>
+                            <div class="prod-nombre-5">producto</div>
+                        </div>
+                    </div>
                 </div>
             </div>
     

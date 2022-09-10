@@ -1,0 +1,152 @@
+.container-grafico-prod{
+    width: 95%;
+    height: 95%;
+    background-color: rgba(167, 167, 167, 0.671);
+    margin-top: 1.5%;
+    display: flex;
+}
+
+.container-grafico-prod .container-grafico{
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    outline: 1px solid #000;
+    display: grid;
+    grid-template-columns: repeat(6,16%);
+    grid-template-rows: repeat(6,16%);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container-grafico-prod .container-grafico .linea-numeros{
+    width: 0;
+    height: 98%;
+    grid-column: 6;
+    grid-row: 1 / 7;
+    border-left: 1.5px solid #000;
+}
+
+.container-grafico-prod .container-grafico .linea-prod-nombres{
+    width: 98%;
+    height: 0;
+    grid-column: 1 / 7;
+    grid-row: 6;
+    border-bottom: 1.5px solid #000;
+    margin-bottom: 10%;
+}
+
+.container-grafico-prod .container-grafico .prod-nombre-1{
+    grid-column: 1;
+    grid-row: 6;
+}
+
+.container-grafico-prod .container-grafico .prod-nombre-2{
+    grid-column: 2;
+    grid-row: 6;
+}
+
+.container-grafico-prod .container-grafico .prod-nombre-3{
+    grid-column: 3;
+    grid-row: 6;
+}
+
+.container-grafico-prod .container-grafico .prod-nombre-4{
+    grid-column: 4;
+    grid-row: 6;
+}
+
+.container-grafico-prod .container-grafico .prod-nombre-5{
+    grid-column: 5;
+    grid-row: 6;
+}
+
+.container-grafico-prod .container-grafico .numeros-1{
+    grid-column: 6;
+    grid-row: 1;
+}
+
+.container-grafico-prod .container-grafico .numeros-2{
+    grid-column: 6;
+    grid-row: 2;
+}
+
+.container-grafico-prod .container-grafico .numeros-3{
+    grid-column: 6;
+    grid-row: 3;
+}
+
+.container-grafico-prod .container-grafico .numeros-4{
+    grid-column: 6;
+    grid-row: 4;
+}
+
+.container-grafico-prod .container-grafico .numeros-5{
+    grid-column: 6;
+    grid-row: 5;
+}
+
+
+.container-grafico-prod .container-grafico .container-barras{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-column: 1 / 6;
+    grid-row: 1 / 6;
+    grid-template-columns: repeat(5,20%);
+    grid-template-rows: repeat(5, 20%);
+    justify-content: center;
+    align-items: center;
+}
+
+.container-grafico-prod .container-grafico .container-barras .barra-1{
+    grid-column: 1;
+    grid-row: 1 / 6;
+    width: 30px;
+    height: 100%;
+    justify-self: center;
+    align-self: end;
+    background-color: blue;
+}
+
+.container-grafico-prod .container-grafico .container-barras .barra-2{
+    grid-column: 2;
+    grid-row: 1 / 6;
+    width: 30px;
+    height: 50%;
+    justify-self: center;
+    align-self: end;
+    background-color: red;
+}
+
+.container-grafico-prod .container-grafico .container-barras .barra-3{
+    grid-column: 3;
+    grid-row: 1 / 6;
+    width: 30px;
+    height: 60%;
+    justify-self: center;
+    align-self: end;
+    background-color: green;
+}
+
+.container-grafico-prod .container-grafico .container-barras .barra-4{
+    grid-column: 4;
+    grid-row: 1 / 6;
+    width: 30px;
+    height: 90%;
+    justify-self: center;
+    align-self: end;
+    background-color: orange;
+}
+
+.container-grafico-prod .container-grafico .container-barras .barra-5{
+    grid-column: 5;
+    grid-row: 1 / 6;
+    width: 30px;
+    height: 20%;
+    justify-self: center;
+    align-self: end;
+    background-color: violet;
+}
+
+

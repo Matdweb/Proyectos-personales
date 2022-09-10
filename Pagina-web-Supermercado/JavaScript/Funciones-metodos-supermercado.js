@@ -11,6 +11,7 @@ const formsEliminarXcodigo = () =>{
 
 //metodo eliminar por codigo  metodo cuantosKgsSeHanVendidoDelProducto()  
 //metodo imprimProductosQueSonMasCostososQue()
+//metodo cuantasUnidadesSeHanVendidoDelProducto()
 const RegistrarCodigo = ()=>{
     return document.querySelector(".codigo-eliminar").value; 
 }
@@ -51,6 +52,7 @@ const cuadriculaBajaExistencia = () =>{
 
 //metodo cuantos kg se han vendido de un producto  
 //metodo imprimProductosQueSonMasCostososQue()
+//metodo cuantasUnidadesSeHanVendidoDelProducto()
 const formsPedirProducto = (texto) =>{
     containerFunciones.innerHTML = `<div class="container-eliminar container-pedir-producto">
                                         <h2>PRODUCTO</h2>
@@ -85,4 +87,16 @@ const AveriguarProductoPorCodigo = (codigoProd) =>{
             return producto;
         }
     }
+}
+
+
+//metodo costoDelInventario()
+//metodo costoDeLasVentas()
+const getCostoProducto = (producto) =>{
+    return producto.getPrecioBase() - getGananciaProducto(producto);
+}
+
+//metodo ganaciaDelSuperMercadoPorVentas()
+const getGananciaProducto = (producto) =>{
+    return producto.getPrecioBase() * producto.getPorcentajeGanancia()
 }
