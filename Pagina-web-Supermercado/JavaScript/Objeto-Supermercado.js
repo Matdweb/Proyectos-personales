@@ -1,4 +1,4 @@
-const productos = []; 
+let productos = []; 
 let texto; //variable que almacena el texto que se desae mostrar al terminar la funcion
 
 class Supermercado{
@@ -344,25 +344,30 @@ class Supermercado{
 
      graficoDeVentasDeLos5ProductsMasVendidos(){
         if(this.getCantidad()<=this.getTotal() && this.getCantidad()>0){
-            let mayor= [0,0,0];
-            const copiaProductos = productos;   //se hace una copia del arreglo con los productos, esto para sacar 5 productos mas altos
+            let infoMayor= [0,0,0];
+            let mayor = 0;
+            let mayorVentas;
+            let copiaProductos = [...productos];   //se hace una copia del arreglo con los productos, esto para sacar 5 productos mas altos
             let containerGrafico = imprimirGrafico(); 
+            console.log(copiaProductos);
             for(var i=1; i<=5; i++){
+                mayor = 0; 
                 for(var producto of copiaProductos){
-                    if(producto.getCantidadVendida()>mayor[0]){
-                        mayor = [producto.getCantidadVendida(),producto.getNombre(),producto.getCodigo(),producto];
+                    if(producto.getCantidadVendida()>mayor){
+                        mayor = producto.getCantidadVendida();
+                        infoMayor = [producto.getCantidadVendida(),producto.getNombre(),producto.getCodigo()];
                     } 
                 }
-                console.log(copiaProductos);
-                console.log( copiaProductos.indexOf( mayor[3] ));
-                copiaProductos.splice(copiaProductos.indexOf(AveriguarProductoPorCodigo(mayor[2])),1);
-                console.log(copiaProductos);
-                containerGrafico[0].innerHTML += `<div class="barra-${i}"></div>`;
-    
-                containerGrafico[1].innerHTML += `<div class="numeros-${i}">${mayor[0]}</div>`; 
-    
-                containerGrafico[2].innerHTML += `<div class="prod-nombre-${i}">${mayor[1]}</div>`;
+                if(i==1){
+                    definirContNumeros(infoMayor[0],containerGrafico);
+                    mayorVentas = infoMayor[0];
+                }
+                copiaProductos.splice(copiaProductos.indexOf(AveriguarProductoPorCodigo(infoMayor[2])),1);
+                containerGrafico[0].innerHTML += `<div style="height: ${infoMayor[0]*100/mayorVentas}%" class="barra-${i}"></div>`;
+
+                containerGrafico[2].innerHTML += `<div class="prod-nombre-${i}">${infoMayor[1]}</div>`;
             }
+            console.log(productos);
         }else{
             texto = `Lo sentimos no hay productos registrados por ahora`;
             TerminarFuncion(texto);

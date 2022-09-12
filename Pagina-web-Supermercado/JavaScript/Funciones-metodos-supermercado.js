@@ -124,3 +124,11 @@ const imprimirGrafico = () =>{
     let contNombres = document.querySelector(".container-prod-nombres"); 
     return [contBarras,contNumeros,contNombres]; 
 }
+
+const definirContNumeros = (mayor,containerGrafico) =>{
+    let claseNum = 1;
+    for(var i=100; i>0; i-=20){
+        containerGrafico[1].innerHTML += `<div class="numeros-${claseNum}">${mayor*(i/100)}</div>`;
+        claseNum++;
+    }
+}
