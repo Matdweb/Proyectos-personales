@@ -344,7 +344,25 @@ class Supermercado{
 
      graficoDeVentasDeLos5ProductsMasVendidos(){
         if(this.getCantidad()<=this.getTotal() && this.getCantidad()>0){
-            
+            let mayor= [0,0,0];
+            const copiaProductos = productos;   //se hace una copia del arreglo con los productos, esto para sacar 5 productos mas altos
+            let containerGrafico = imprimirGrafico(); 
+            for(var i=1; i<=5; i++){
+                for(var producto of copiaProductos){
+                    if(producto.getCantidadVendida()>mayor[0]){
+                        mayor = [producto.getCantidadVendida(),producto.getNombre(),producto.getCodigo(),producto];
+                    } 
+                }
+                console.log(copiaProductos);
+                console.log( copiaProductos.indexOf( mayor[3] ));
+                copiaProductos.splice(copiaProductos.indexOf(AveriguarProductoPorCodigo(mayor[2])),1);
+                console.log(copiaProductos);
+                containerGrafico[0].innerHTML += `<div class="barra-${i}"></div>`;
+    
+                containerGrafico[1].innerHTML += `<div class="numeros-${i}">${mayor[0]}</div>`; 
+    
+                containerGrafico[2].innerHTML += `<div class="prod-nombre-${i}">${mayor[1]}</div>`;
+            }
         }else{
             texto = `Lo sentimos no hay productos registrados por ahora`;
             TerminarFuncion(texto);

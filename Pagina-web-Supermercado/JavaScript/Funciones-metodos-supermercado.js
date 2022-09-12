@@ -81,6 +81,7 @@ const cuadriculaImprimirProductos = (nombreProducto) =>{
 }
 
 //metodo imprimProductosQueSonMasCostososQue()
+//metodo graficoDeVentasDeLos5ProductsMasVendidos()
 const AveriguarProductoPorCodigo = (codigoProd) =>{
     for(var producto of productos){
         if(producto.getCodigo()==codigoProd){
@@ -99,4 +100,27 @@ const getCostoProducto = (producto) =>{
 //metodo ganaciaDelSuperMercadoPorVentas()
 const getGananciaProducto = (producto) =>{
     return producto.getPrecioBase() * producto.getPorcentajeGanancia()
+}
+
+//metodo graficoDeVentasDeLos5ProductsMasVendidos()
+const imprimirGrafico = () =>{
+    containerFunciones.innerHTML = `<div class="container-grafico-prod">
+                                        <div class="container-grafico">
+                                            <div class="container-barras">
+            
+                                            </div>
+                                            <div class="linea-numeros"></div>
+                                            <div class="container-numeros">
+                                                
+                                            </div>
+                                            <div class="linea-prod-nombres"></div>
+                                            <div class="container-prod-nombres">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>`;
+    let contBarras = document.querySelector(".container-barras");
+    let contNumeros = document.querySelector(".container-numeros"); 
+    let contNombres = document.querySelector(".container-prod-nombres"); 
+    return [contBarras,contNumeros,contNombres]; 
 }

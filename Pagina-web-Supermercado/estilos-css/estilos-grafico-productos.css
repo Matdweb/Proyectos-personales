@@ -36,56 +36,85 @@
     margin-bottom: 10%;
 }
 
-.container-grafico-prod .container-grafico .prod-nombre-1{
+.container-grafico-prod .container-numeros{
+    width: 100%;
+    height: 100%;
+    grid-column: 6;
+    grid-row: 1 / 6;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(5,20%);
+}
+
+.container-grafico-prod .container-numeros .numeros-1{
     grid-column: 1;
-    grid-row: 6;
-}
-
-.container-grafico-prod .container-grafico .prod-nombre-2{
-    grid-column: 2;
-    grid-row: 6;
-}
-
-.container-grafico-prod .container-grafico .prod-nombre-3{
-    grid-column: 3;
-    grid-row: 6;
-}
-
-.container-grafico-prod .container-grafico .prod-nombre-4{
-    grid-column: 4;
-    grid-row: 6;
-}
-
-.container-grafico-prod .container-grafico .prod-nombre-5{
-    grid-column: 5;
-    grid-row: 6;
-}
-
-.container-grafico-prod .container-grafico .numeros-1{
-    grid-column: 6;
     grid-row: 1;
+    align-self: center;
 }
 
-.container-grafico-prod .container-grafico .numeros-2{
-    grid-column: 6;
+.container-grafico-prod .container-numeros .numeros-2{
+    grid-column: 1;
     grid-row: 2;
+    align-self: center;
 }
 
-.container-grafico-prod .container-grafico .numeros-3{
-    grid-column: 6;
+.container-grafico-prod .container-numeros .numeros-3{
+    grid-column: 1;
     grid-row: 3;
+    align-self: center;
 }
 
-.container-grafico-prod .container-grafico .numeros-4{
-    grid-column: 6;
+.container-grafico-prod .container-numeros .numeros-4{
+    grid-column: 1;
     grid-row: 4;
+    align-self: center;
 }
 
-.container-grafico-prod .container-grafico .numeros-5{
-    grid-column: 6;
+.container-grafico-prod .container-numeros .numeros-5{
+    grid-column: 1;
     grid-row: 5;
+    align-self: center;
 }
 
+.container-grafico-prod .container-prod-nombres{
+    width: 100%;
+    height: 100%;
+    grid-column: 1 / 6;
+    grid-row: 6;
+    display: grid;
+    grid-template-columns: repeat(5,20%);
+    grid-template-rows: 100%;
+}
+
+.container-grafico-prod .container-prod-nombres .prod-nombre-1{
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+}
+
+.container-grafico-prod .container-prod-nombres .prod-nombre-2{
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+}
+
+.container-grafico-prod .container-prod-nombres .prod-nombre-3{
+    grid-column: 3;
+    grid-row: 1;
+    align-self: center;
+}
+
+.container-grafico-prod .container-prod-nombres .prod-nombre-4{
+    grid-column: 4;
+    grid-row: 1;
+    align-self: center;
+}
+
+.container-grafico-prod .container-prod-nombres .prod-nombre-5{
+    grid-column: 5;
+    grid-row: 1;
+    align-self: center;
+}
 
 .container-grafico-prod .container-grafico .container-barras{
     display: grid;

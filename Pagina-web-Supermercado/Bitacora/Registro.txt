@@ -51,5 +51,8 @@ Inicio del desarrollo del metodo graficoDeVentasDeLos5ProductsMasVendidos()
 Desarrollo de nuevos metodos
 09/09/22   22:46
 
+Desarrollo del metodo graficoDeVentasDeLos5ProductsMasVendidos(), pendientes
+11/09/22   22:45
+
 PENDIENTES: 
 -Metodos de cada Objeto 
