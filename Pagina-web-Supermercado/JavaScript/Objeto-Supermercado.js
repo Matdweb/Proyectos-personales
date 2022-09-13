@@ -433,3 +433,8 @@ const ProductosDefault = () =>{
 }
 
 ProductosDefault(); //Se llena el supermercado de productos default
+
+if(window.screen.width <= 600){   //en dispositivos moviles o con 600px de resolucion o menos, se muestra una alerta
+    alert(`PRECUACION: esta pagina puede presentar fallos al utilizarse en este dispositivo
+Utilizar un ordenador para mejor funcionamiento`);
+}
