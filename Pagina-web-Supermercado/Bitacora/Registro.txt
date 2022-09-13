@@ -57,5 +57,13 @@ Desarrollo del metodo graficoDeVentasDeLos5ProductsMasVendidos(), pendientes
 Desarrollo del metodo graficoDeVentasDeLos5ProductsMasVendidos(), funcionamiento 95%
 12/09/22   13:59
 
+Desarrollo del metodo graficoDeVentasDeLos5ProductsMasVendidos(), funcionamiento exitoso
+Desarrollo del metodo graficoDeVentasDeLos5ProductsMenosVendidos(), funcionamiento exitoso
+desarrllo del metodo promedioDeLosPreciosDeVenta(),  funcionamiento exitoso
+Desarrollo de la funcion estilosGrafico(), estado de prueba
+LA APP SE PUEDE CONSIDERAR LISTA
+12/09/22   23:03
+
+
 PENDIENTES: 
 -Metodos de cada Objeto 
