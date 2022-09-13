@@ -240,8 +240,12 @@ class Supermercado{
 
             let btnPedirProducto = document.querySelector(".btn-eliminar"); 
             btnPedirProducto.addEventListener("click",()=>{
-                let prod = AveriguarProductoPorCodigo(RegistrarCodigo());
-
+               try{
+                  let prod = AveriguarProductoPorCodigo(RegistrarCodigo());
+                }catch(e){
+                 texto = `Lo sentimos no se encontró un producto con ese codigo`;
+                  TerminarFuncion(texto);
+                }
                 cuadricula = cuadriculaImprimirProductos(prod.getNombre());
                 for(var producto of productos){
                     if(producto.getPrecioBase()>prod.getPrecioBase()){
