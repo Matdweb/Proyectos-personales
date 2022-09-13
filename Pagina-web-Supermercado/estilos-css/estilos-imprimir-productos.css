@@ -31,6 +31,7 @@
 
 .cuadricula-imprimir-prod .imprimir-nombre{
     grid-column: 2;
+    line-break: anywhere;
     padding: 5px;
     outline: 1px solid #000;
     font-weight: bold;

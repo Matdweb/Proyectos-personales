@@ -1,5 +1,4 @@
 .contenedor-menu-funcion .container-funciones{
-    grid-column: 2;
     display: flex;
     background-color: rgba(167, 167, 167, 0.671);
     justify-content: center;
@@ -58,4 +57,10 @@
     color: #fff;
     background: rgb(0,0,0);
     background: linear-gradient(0deg, rgba(0,0,0,1) 9%, rgba(0,0,0,0) 100%);
+}
+
+@media only screen and (max-width: 600px){
+    .contenedor-menu-funcion .container-funciones .container-forms-nuevo-producto form{
+        height: auto;
+    }
 }

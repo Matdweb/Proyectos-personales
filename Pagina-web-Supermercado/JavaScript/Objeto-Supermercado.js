@@ -1,4 +1,4 @@
-let productos = []; 
+const productos = []; 
 let texto; //variable que almacena el texto que se desae mostrar al terminar la funcion
 
 class Supermercado{
@@ -345,28 +345,25 @@ class Supermercado{
      graficoDeVentasDeLos5ProductsMasVendidos(){
         if(this.getCantidad()<=this.getTotal() && this.getCantidad()>0){
             let infoMayor= [0,0,0];
-            let mayor = 0;
             let mayorVentas;
             let copiaProductos = [...productos];   //se hace una copia del arreglo con los productos, esto para sacar 5 productos mas altos
             let containerGrafico = imprimirGrafico(); 
             console.log(copiaProductos);
             for(var i=1; i<=5; i++){
-                mayor = 0; 
-                for(var producto of copiaProductos){
-                    if(producto.getCantidadVendida()>mayor){
-                        mayor = producto.getCantidadVendida();
-                        infoMayor = [producto.getCantidadVendida(),producto.getNombre(),producto.getCodigo()];
-                    } 
-                }
+                infoMayor = MayorVentas(copiaProductos);
                 if(i==1){
                     definirContNumeros(infoMayor[0],containerGrafico);
                     mayorVentas = infoMayor[0];
                 }
                 copiaProductos.splice(copiaProductos.indexOf(AveriguarProductoPorCodigo(infoMayor[2])),1);
-                containerGrafico[0].innerHTML += `<div style="height: ${infoMayor[0]*100/mayorVentas}%" class="barra-${i}"></div>`;
 
-                containerGrafico[2].innerHTML += `<div class="prod-nombre-${i}">${infoMayor[1]}</div>`;
+                definirBarras(containerGrafico,infoMayor,mayorVentas,i);
+                containerGrafico[2].innerHTML += `<div class="prod-nombre-${i}">${infoMayor[1]}</div>`;  //define los productos
             }
+
+            document.querySelector(".container-grafico").nextElementSibling.addEventListener("click",()=>{
+                limpiarContainer();
+            });
             console.log(productos);
         }else{
             texto = `Lo sentimos no hay productos registrados por ahora`;
@@ -374,9 +371,49 @@ class Supermercado{
         }
      }
 
-     graficoDeVentasDeLos5ProductsMenosVendidos(){}
+     graficoDeVentasDeLos5ProductsMenosVendidos(){
+        if(this.getCantidad()<=this.getTotal() && this.getCantidad()>0){
+            let infoMenor= [0,0,0];
+            let copiaProductos = [...productos];   //se hace una copia del arreglo con los productos, esto para sacar 5 productos mas altos
+            let ventaMayor = MayorVentas(copiaProductos)[0];
+            let containerGrafico = imprimirGrafico(); 
+            console.log(copiaProductos);
 
-     promedioDeLosPreciosDeVenta (){}
+            for(var i=1; i<=5; i++){
+                infoMenor = MenorVentas(copiaProductos,ventaMayor);
+                if(i==1){
+                    definirContNumeros(ventaMayor,containerGrafico);
+                }
+                copiaProductos.splice(copiaProductos.indexOf(AveriguarProductoPorCodigo(infoMenor[2])),1);
+
+                definirBarras(containerGrafico,infoMenor,ventaMayor,i);
+                containerGrafico[2].innerHTML += `<div class="prod-nombre-${i}">${infoMenor[1]}</div>`;  //define los productos
+            } 
+
+            document.querySelector(".container-grafico").nextElementSibling.addEventListener("click",()=>{
+                limpiarContainer();
+            });
+            console.log(productos);
+        }else{
+            texto = `Lo sentimos no hay productos registrados por ahora`;
+            TerminarFuncion(texto);
+        }
+     }
+
+     promedioDeLosPreciosDeVenta(){
+        if(this.getCantidad()<=this.getTotal() && this.getCantidad()>0){
+            let sumaPrecios=0; 
+            for(var producto of productos){
+                sumaPrecios += producto.getPrecioBase();
+            }
+            let promedio = sumaPrecios/productos.length;
+            texto = `El promedio de precio de productos del supermercado es de ${promedio}`;
+            TerminarFuncion(texto);
+        }else{
+            texto = `Lo sentimos no hay productos registrados por ahora`;
+            TerminarFuncion(texto);
+        }
+     }
 
 
 }
@@ -384,11 +421,11 @@ class Supermercado{
 const supermercado  = new Supermercado(0,200); //Se debe definir el atributo cantidad con valor de cero, ya que cada vez que se ingresa uno este atributo incrementa 
 
 const ProductosDefault = () =>{
-    supermercado.IngresarDefault('11100','Arroz',800,0.15,90,95,60,400);
+    supermercado.IngresarDefault('11100','Arroz',800,0.15,60,95,60,400);
     supermercado.IngresarDefault('20124','Galletas',1000,0.25,95,100,50,90);
-    supermercado.IngresarDefault('12456','Macarrones',900,0.25,90,45,40,700);
+    supermercado.IngresarDefault('12456','Macarrones',900,0.25,78,45,40,700);
     supermercado.IngresarDefault('845707','Azucar',5000,0.15,70,89,67,800);
-    supermercado.IngresarDefault('670363','Frijoles',500,0.25,50,100,30,10);
+    supermercado.IngresarDefault('670363','Frijoles',500,0.25,80,100,30,10);
     supermercado.IngresarDefault('04566','Jugo de Naranja',2000,0.25,100,71,60,40);
     supermercado.IngresarDefault('540500','Harina',700,0.15,80,80,60,70);
     supermercado.IngresarDefault('365400','Bananos',900,0.25,90,20,90,100);

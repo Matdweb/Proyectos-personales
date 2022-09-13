@@ -1,3 +1,12 @@
+//estilizacion del grafico
+const estilosGrafico = () =>{
+
+    for(var i=1;i<=5;i++){
+        document.querySelector(`.numeros-${i}`).style.gridRow = i;
+        document.querySelector(`barra-${i}`).style.gridColumn = i;
+    }
+}
+
 //metodo eliminar por codigo 
 const formsEliminarXcodigo = () =>{
     containerFunciones.innerHTML = `<div class="container-eliminar">
@@ -107,7 +116,7 @@ const imprimirGrafico = () =>{
     containerFunciones.innerHTML = `<div class="container-grafico-prod">
                                         <div class="container-grafico">
                                             <div class="container-barras">
-            
+                                                
                                             </div>
                                             <div class="linea-numeros"></div>
                                             <div class="container-numeros">
@@ -118,6 +127,7 @@ const imprimirGrafico = () =>{
                                                 
                                             </div>
                                         </div>
+                                        <button>LISTO</button>
                                     </div>`;
     let contBarras = document.querySelector(".container-barras");
     let contNumeros = document.querySelector(".container-numeros"); 
@@ -125,10 +135,39 @@ const imprimirGrafico = () =>{
     return [contBarras,contNumeros,contNombres]; 
 }
 
+//metodo graficoDeVentasDeLos5ProductsMasVendidos()
 const definirContNumeros = (mayor,containerGrafico) =>{
     let claseNum = 1;
     for(var i=100; i>0; i-=20){
-        containerGrafico[1].innerHTML += `<div class="numeros-${claseNum}">${mayor*(i/100)}</div>`;
+        containerGrafico[1].innerHTML += `<div class="numeros numeros-${claseNum}">${mayor*(i/100)}</div>`;
         claseNum++;
     }
+}
+
+const definirBarras = (containerGrafico,info,mayorVentas,i)=>{
+    containerGrafico[0].innerHTML += `<div style="height: ${(info[0]*100/mayorVentas)-9}%" class="barras barra-${i}"></div>
+                                        <div class="mostar-num-barra-${i}">${info[0]}</div>`;
+}
+
+const MayorVentas = (copiaProductos) =>{
+    let mayorVentas = 0; 
+    let infoMayor = [0,0,0]
+    for(var producto of copiaProductos){
+        if(producto.getCantidadVendida()>mayorVentas){
+            mayorVentas = producto.getCantidadVendida();
+            infoMayor = [producto.getCantidadVendida(),producto.getNombre(),producto.getCodigo()];
+        }
+    }
+    return infoMayor;
+}
+
+const MenorVentas = (copiaProductos,ventaMayor) =>{
+    let MenorVentas = [0,0,0];
+    for(producto of copiaProductos){
+        if(producto.getCantidadVendida()<ventaMayor){
+            ventaMayor = producto.getCantidadVendida();
+            MenorVentas = [producto.getCantidadVendida(),producto.getNombre(),producto.getCodigo()];
+        }
+    }
+    return MenorVentas;
 }
