@@ -3,5 +3,25 @@ Desarrollo del objt Fila
 desarrollo del objt Tabla 
 16/09/22   22:17
 
+Propuesta de eliminacion del objt Fila 
+ -Manejo del Sistema por medio de arreglo de objts Tabla
+ 18/09/22   18:42
+
+Desarrollo del metodo NuevaTabla(), funcionamiento exitoso
+Desarrollo del metodo modificarTexto(), funcionamiento exitoso
+Desarrollo del metodo agregarFila(), funcionamiento exitoso
+Desarrollo del metodo nuevoNomTabla(), funcionamiento exitoso
+Desarrollo de de difernetes funciones para el funcionamiento de los metodos realizados
+
 PENDIENTES: 
 - Metodos respectivos   
+  - modificar estado 
+  - modificar encargado
+    - <p>Elige un color: 
+           <select name="color">
+             <option>rojo</option>
+             <option>amarillo</option>
+             <option>verde</option>
+             <option>azul</option>
+           </select>
+        </p>

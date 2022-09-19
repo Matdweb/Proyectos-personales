@@ -52,8 +52,8 @@
             </div>
         </div>
         <div class="container-tareas">
-            <div class="container-tabla">
-                <h2>NOMBRE TABLA</h2>
+            <div class="container-tabla tabla-0">
+                <h2 onclick="ModificarNomTabla(0)">NOMBRE TABLA</h2>
                 <div class="tabla">
                     <div class="fila">
                         <label>Tarea</label>
@@ -62,32 +62,36 @@
                         <label>Descripcion</label>
                     </div>
                     <div class="fila">
-                        <label>Tarea</label>
+                        <label onclick="ModificarTexto(0,1,0)">Tarea</label>
                         <label>Encargado</label>
                         <label>Estado</label>
-                        <label>Descripcion</label>
+                        <label onclick="ModificarTexto(0,1,3)">Descripcion</label>
                     </div>
                     <div class="fila">
-                        <label>Tarea</label>
+                        <label onclick="ModificarTexto(0,2,0)">Tarea</label>
                         <label>Encargado</label>
                         <label>Estado</label>
-                        <label>Descripcion</label>
+                        <label onclick="ModificarTexto(0,2,3)">Descripcion</label>
                     </div>
                     <div class="fila">
-                        <label>Tarea</label>
+                        <label onclick="ModificarTexto(0,3,0)">Tarea</label>
                         <label>Encargado</label>
                         <label>Estado</label>
-                        <label>Descripcion</label>
+                        <label onclick="ModificarTexto(0,3,3)">Descripcion</label>
                     </div>
                     <div class="fila">
-                        <label>Tarea</label>
+                        <label onclick="ModificarTexto(0,4,0)">Tarea</label>
                         <label>Encargado</label>
                         <label>Estado</label>
-                        <label>Descripcion</label>
+                        <label onclick="ModificarTexto(0,4,3)">Descripcion</label>
                     </div>
                 </div>
+                <div onclick="AgregarFila(0)" class="cont-agregar-fila"><h4 style="margin-left: 7px;">+ Nueva Fila</h4></div>
+                <h3 onclick="AgregarTabla(0)">+ Nueva Tabla</h3>
             </div>
         </div>
     </div>
+    <script src="JavaScript/objtTabla.js"></script>
+    <script src="JavaScript/Funciones-objt-Tabla.js"></script>
 </body>
 </html>
