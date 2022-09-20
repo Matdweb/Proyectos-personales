@@ -1,0 +1,110 @@
+.container-perfil{
+    padding: 20px;
+    grid-column: 1;
+    grid-row: 1;
+    background-color: #071425;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 40% 400px;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-perfil .container-usuario{
+    width: 100%;
+    height: 100%;
+    grid-column: 1;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 80% 20%;
+    text-align: center;
+    border: 1px solid rgba(85, 85, 85, 0.667);
+}
+
+.container-usuario .imagen-usuario{
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    width: 180px;
+    height: 180px;
+    justify-self: center;
+    align-self: center;
+    overflow: hidden;
+}
+
+.container-usuario .imagen-usuario img{
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.container-usuario .nombre-usuario{
+    grid-column: 1;
+    grid-row: 2;
+    color: #fff;
+    border-top: 1px solid rgba(85, 85, 85, 0.667);
+}
+
+.container-info-usuario{
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,50%);
+    grid-template-rows: repeat(2,50%);
+}
+
+.container-info-usuario{
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: row wrap;
+}
+
+.container-info-usuario .container-dato-usuario{
+    width: 120px;
+    height: 120px;
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 40px 80px;
+    text-align: center;
+    overflow: hidden;
+    color: #fff;
+}
+
+.container-info-usuario .container-dato-usuario .dato-usuario{
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.container-info-usuario .container-dato-usuario .barra-progreso{
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    font-weight: bold;
+}
+
+.container-info-usuario .container-dato-usuario .barra-progreso .barra{
+    margin: auto;
+    width: 60px;
+    height: 60px;
+    border: 10px solid #ce5c05;
+    border-top: 10px solid rgba(0, 0, 0, 0);
+    border-radius: 100%;
+    transform: rotate(-45deg);
+    display: flex;
+}
+
+.container-info-usuario .container-dato-usuario .barra-progreso .barra label{
+    margin: auto;
+    transform: rotate(45deg);
+}

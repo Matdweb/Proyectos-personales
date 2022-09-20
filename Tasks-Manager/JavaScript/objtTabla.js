@@ -1,21 +1,31 @@
 let ContTareas = document.querySelector(".container-tareas"); 
 let ArregloTablas = []; 
+let Integrantes = ["Rafael", "Josue R", "Alisson", "Stephanie", "Josue S", "Esteban"];
 
 class Tabla {
-    constructor(filas){
+    constructor(filas,subGrupos){
         this.filas = filas
+        this.subGrupos = subGrupos;
     }
 
     getFilas(){
         return this.filas;
     }
 
+    getSubGrupos(){
+        return this.subGrupos; 
+    }
+
     setFilas(filas){
         this.filas = filas; 
+    }  
+
+    setSubGrupos(subGrupos_){
+        this.subGrupos = subGrupos_;
     }
 
     NuevaTabla(){
-        ArregloTablas.push(new Tabla(1));
+        ArregloTablas.push(new Tabla(1,1));
         ContTareas.innerHTML += `<div class="container-tabla tabla-${ArregloTablas.length-1}">
                                     <h2 onclick="ModificarNomTabla(${ArregloTablas.length-1})">NOMBRE TABLA</h2>
                                     <div class="tabla">
@@ -27,8 +37,8 @@ class Tabla {
                                         </div>
                                         <div class="fila">
                                             <label onclick="ModificarTexto(${ArregloTablas.length-1},${ArregloTablas[ArregloTablas.length-1].getFilas()},0)">Tarea</label>
-                                            <label>Encargado</label>
-                                            <label style = "background-color: red;">Estado</label>
+                                            <label  onclick="ModificarEncargado(${ArregloTablas.length-1},${ArregloTablas[ArregloTablas.length-1].getFilas()})">Encargado</label>
+                                            <label onclick="ModificarEstado(${ArregloTablas.length-1},${ArregloTablas[ArregloTablas.length-1].getFilas()})">Estado</label>
                                             <label onclick="ModificarTexto(${ArregloTablas.length-1},${ArregloTablas[ArregloTablas.length-1].getFilas()},3)">Descripcion</label>
                                         </div>
                                     </div>
@@ -39,11 +49,11 @@ class Tabla {
     }
 
     modificarTexto(tabla,fila,colm){
-        let casillaText = document.querySelector(`.tabla-${tabla}`).children[1].children[fila].children[colm]; 
+        let casillaText = document.querySelector(`.tabla-${tabla}`).children[1].children[fila].children[colm];
         console.log(casillaText.innerHTML); 
         casillaText.removeAttribute("onclick");
-        casillaText.innerHTML = `<input type="text" value="${casillaText.innerHTML}"><div>E</div>`;
-        casillaText.lastChild.addEventListener("click",()=>{
+        casillaText.innerHTML = `<input type="text" value="${casillaText.innerHTML}">`;
+        casillaText.firstChild.addEventListener("blur",()=>{
             casillaText.innerHTML = validacionTexto(casillaText);
             setTimeout(()=>{
                 casillaText.setAttribute("onclick",`ModificarTexto(${tabla},${fila},${colm})`);
@@ -56,24 +66,81 @@ class Tabla {
 
         document.querySelector(`.tabla-${numTabla}`).children[1].innerHTML += `<div class="fila">
                                     <label onclick="ModificarTexto(${numTabla},${ArregloTablas[numTabla].getFilas()},0)">Tarea</label>
-                                    <label>Encargado</label>
-                                    <label style = "background-color: red;">Estado</label>
+                                    <label onclick="ModificarEncargado(${numTabla},${ArregloTablas[numTabla].getFilas()})">Encargado</label>
+                                    <label onclick="ModificarEstado(${numTabla},${ArregloTablas[numTabla].getFilas()})">Estado</label>
                                     <label onclick="ModificarTexto(${numTabla},${ArregloTablas[numTabla].getFilas()},3)">Descripcion</label>
                                 </div>`;
     }
 
     nuevoNomTabla(numTabla){
         let casillaTitulo = document.querySelector(`.tabla-${numTabla}`).children[0];
-        casillaTitulo.innerHTML = `<input type="text" value="${casillaTitulo.innerHTML}" ><div>E</div>`;
+        casillaTitulo.innerHTML = `<input type="text" value="${casillaTitulo.innerHTML}" >`;
         casillaTitulo.removeAttribute("onclick");
-        casillaTitulo.lastChild.addEventListener("click",()=>{
+        casillaTitulo.firstChild.addEventListener("blur",()=>{
             casillaTitulo.innerHTML = validacionTexto(casillaTitulo);
             setTimeout(()=>{
                 casillaTitulo.setAttribute("onclick",`ModificarNomTabla(${numTabla})`);
             },100);
         })
     }
+
+    modificarEstado(tabla,fila){
+        let casillaEstado = document.querySelector(`.tabla-${tabla}`).children[1].children[fila].children[2]; 
+        casillaEstado.removeAttribute("onclick");
+        casillaEstado.innerHTML = `<select name="estado" id="estado">
+                                        <option value="Estado" selected>Estado</option>
+                                        <option value="Estancado">Estancado</option>
+                                        <option value="En proceso">En proceso</option>
+                                        <option value="Casi Listo">Casi Listo</option>
+                                        <option value="Listo">Listo</option>
+                                    </select>`;
+        let estados = casillaEstado.firstChild;
+        estados.addEventListener("blur",()=>{
+            console.log(estados);
+            casillaEstado.innerHTML = estados.options[estados.selectedIndex].value;
+            casillaEstado.style.backgroundColor = DefinirEstado(casillaEstado.innerHTML);
+            setTimeout(()=>{
+                casillaEstado.setAttribute("onclick",`ModificarEstado(${tabla},${fila})`);
+            },100);
+        })
+    }
+
+    modificarEncargado(tabla,fila){
+        let casillaEncargado = document.querySelector(`.tabla-${tabla}`).children[1].children[fila].children[1]; 
+        casillaEncargado.removeAttribute("onclick");
+        casillaEncargado.innerHTML = `<select name="encargado" id="encargado"> </select>`;
+        let estados = casillaEncargado.firstChild;
+
+        for(var usuario of Integrantes){
+            estados.innerHTML += `<option value="${usuario}">${usuario}</option>`
+        }
+
+        estados.addEventListener("blur",()=>{
+            casillaEncargado.innerHTML = estados.options[estados.selectedIndex].value;
+            setTimeout(()=>{
+                casillaEncargado.setAttribute("onclick",`ModificarEncargado(${tabla},${fila})`);
+            },100);
+        })
+    }
+
+    agregarSubGrupo(fila){
+        let subGrupo = document.querySelector(`.sub-grupo-${fila}`); 
+        subGrupo.style.display = `block`;
+        subGrupo.innerHTML += `<div class="sub-elemento">
+                                    <label onclick="ModificarTexto(${ArregloTablas.length-1},${ArregloTablas[ArregloTablas.length-1].getFilas()},0)">Tarea</label>
+                                    <label  onclick="ModificarEncargado(${ArregloTablas.length-1},${ArregloTablas[ArregloTablas.length-1].getFilas()})">Encargado</label>
+                                    <label onclick="ModificarEstado(${ArregloTablas.length-1},${ArregloTablas[ArregloTablas.length-1].getFilas()})">Estado</label>
+                                    <label onclick="ModificarTexto(${ArregloTablas.length-1},${ArregloTablas[ArregloTablas.length-1].getFilas()},3)">Descripcion</label>
+                                </div>`; 
+
+        let subBtn = subGrupo.nextElementSibling;
+        subBtn.removeAttribute("onclick");
+        subBtn.style.width = "100%";
+        subBtn.style.padding = "0px";
+        subBtn.innerHTML = `<span> <i class="fa-regular fa-plus"></i> Nuevo sub-grupo</span> <span onclick="" >OCULTAR</span>`
+
+        this.setFilas(this.getFilas()+1);
+    }
 }
 
-ArregloTablas.push(new Tabla(4));
-
+ArregloTablas.push(new Tabla(8,4));

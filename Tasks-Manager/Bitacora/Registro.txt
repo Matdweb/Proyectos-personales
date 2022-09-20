@@ -13,15 +13,16 @@ Desarrollo del metodo agregarFila(), funcionamiento exitoso
 Desarrollo del metodo nuevoNomTabla(), funcionamiento exitoso
 Desarrollo de de difernetes funciones para el funcionamiento de los metodos realizados
 
+Restructuracion de los documetos css para mejor organizacion 
+Desarrollo del metodo modificarEstado(),funcionamiento exitoso
+Desarrollo del metodo modificarEncargado(),funcionamiento exitoso
+Desarrollo del metodo agregarSubGrupo()
+Integraciones en estructuas HTML 
+Se integra el atributo "subGrupos" al objt Tabla, para que se lleve un orden mas organizado de esto
+
 PENDIENTES: 
 - Metodos respectivos   
-  - modificar estado 
-  - modificar encargado
-    - <p>Elige un color: 
-           <select name="color">
-             <option>rojo</option>
-             <option>amarillo</option>
-             <option>verde</option>
-             <option>azul</option>
-           </select>
-        </p>
+- Correcion de ciertos metodos para funcionamiento con integracion de sug-grupos
+- sub-grupos
+- info del usuario
+- casilla de fecha

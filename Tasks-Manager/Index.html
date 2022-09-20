@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/cc7616c0ac.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="estilos-task-manager/estilos.css">
+    <link rel="stylesheet" href="estilos-task-manager/estilos-info-usuario.css">
     <title>Gestion de tareas - Matweb</title>
 </head>
 <body>
@@ -51,6 +53,7 @@
                 </div>
             </div>
         </div>
+
         <div class="container-tareas">
             <div class="container-tabla tabla-0">
                 <h2 onclick="ModificarNomTabla(0)">NOMBRE TABLA</h2>
@@ -60,31 +63,44 @@
                         <label>Encargado</label>
                         <label>Estado</label>
                         <label>Descripcion</label>
+                        <label>Fecha</label>
                     </div>
                     <div class="fila">
                         <label onclick="ModificarTexto(0,1,0)">Tarea</label>
-                        <label>Encargado</label>
-                        <label>Estado</label>
+                        <label onclick="ModificarEncargado(0,1)">Encargado</label>
+                        <label onclick="ModificarEstado(0,1)">Estado</label>
                         <label onclick="ModificarTexto(0,1,3)">Descripcion</label>
+                        <label><input type="date" name="" id=""></label>
                     </div>
-                    <div class="fila">
-                        <label onclick="ModificarTexto(0,2,0)">Tarea</label>
-                        <label>Encargado</label>
-                        <label>Estado</label>
-                        <label onclick="ModificarTexto(0,2,3)">Descripcion</label>
-                    </div>
-                    <div class="fila">
-                        <label onclick="ModificarTexto(0,3,0)">Tarea</label>
-                        <label>Encargado</label>
-                        <label>Estado</label>
-                        <label onclick="ModificarTexto(0,3,3)">Descripcion</label>
-                    </div>
+                    <div class="sub-grupo sub-grupo-1"></div>
+                    <label onclick="AgregarSubGrupo(0,3)" class="btn-sub-grupo"><i class="fa-regular fa-plus"></i> <p>Nuevo sub-grupo</p> </label>
                     <div class="fila">
                         <label onclick="ModificarTexto(0,4,0)">Tarea</label>
-                        <label>Encargado</label>
-                        <label>Estado</label>
+                        <label onclick="ModificarEncargado(0,4)">Encargado</label>
+                        <label onclick="ModificarEstado(0,4)">Estado</label>
                         <label onclick="ModificarTexto(0,4,3)">Descripcion</label>
+                        <label>dd/mm/año</label>
                     </div>
+                    <div class="sub-grupo sub-grupo-2"></div>
+                    <label onclick="AgregarSubGrupo(0,4)" class="btn-sub-grupo"><i class="fa-regular fa-plus"></i> <p>Nuevo sub-grupo</p> </label>
+                    <div class="fila">
+                        <label onclick="ModificarTexto(0,6,0)">Tarea</label>
+                        <label onclick="ModificarEncargado(0,6)">Encargado</label>
+                        <label onclick="ModificarEstado(0,6)">Estado</label>
+                        <label onclick="ModificarTexto(0,6,3)">Descripcion</label>     
+                        <label>dd/mm/año</label>
+                    </div>
+                    <div class="sub-grupo sub-grupo-3"></div>
+                    <label onclick="AgregarSubGrupo(0,5)" class="btn-sub-grupo"><i class="fa-regular fa-plus"></i> <p>Nuevo sub-grupo</p> </label>
+                    <div class="fila">
+                        <label onclick="ModificarTexto(0,8,0)">Tarea</label>
+                        <label onclick="ModificarEncargado(0,8)">Encargado</label>
+                        <label onclick="ModificarEstado(0,8)">Estado</label>
+                        <label onclick="ModificarTexto(0,8,3)">Descripcion</label>
+                        <label>dd/mm/año</label>
+                    </div>
+                    <div class="sub-grupo sub-grupo-4"></div>
+                    <label onclick="AgregarSubGrupo(0,6)" class="btn-sub-grupo"><i class="fa-regular fa-plus"></i> <p>Nuevo sub-grupo</p> </label>
                 </div>
                 <div onclick="AgregarFila(0)" class="cont-agregar-fila"><h4 style="margin-left: 7px;">+ Nueva Fila</h4></div>
                 <h3 onclick="AgregarTabla(0)">+ Nueva Tabla</h3>
