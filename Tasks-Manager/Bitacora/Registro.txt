@@ -19,6 +19,7 @@ Desarrollo del metodo modificarEncargado(),funcionamiento exitoso
 Desarrollo del metodo agregarSubGrupo()
 Integraciones en estructuas HTML 
 Se integra el atributo "subGrupos" al objt Tabla, para que se lleve un orden mas organizado de esto
+19/09/22   21:55
 
 PENDIENTES: 
 - Metodos respectivos   
