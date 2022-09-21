@@ -3,26 +3,17 @@ let ArregloTablas = [];
 let Integrantes = ["Rafael", "Josue R", "Alisson", "Stephanie", "Josue S", "Esteban"];
 
 class Tabla {
-    constructor(filas,subGrupos){
+    constructor(filas){
         this.filas = filas
-        this.subGrupos = subGrupos;
     }
 
     getFilas(){
         return this.filas;
     }
 
-    getSubGrupos(){
-        return this.subGrupos; 
-    }
-
     setFilas(filas){
         this.filas = filas; 
     }  
-
-    setSubGrupos(subGrupos_){
-        this.subGrupos = subGrupos_;
-    }
 
     NuevaTabla(){
         ArregloTablas.push(new Tabla(1,1));
@@ -87,15 +78,9 @@ class Tabla {
     modificarEstado(tabla,fila){
         let casillaEstado = document.querySelector(`.tabla-${tabla}`).children[1].children[fila].children[2]; 
         casillaEstado.removeAttribute("onclick");
-        casillaEstado.innerHTML = `<select name="estado" id="estado">
-                                        <option value="Estado" selected>Estado</option>
-                                        <option value="Estancado">Estancado</option>
-                                        <option value="En proceso">En proceso</option>
-                                        <option value="Casi Listo">Casi Listo</option>
-                                        <option value="Listo">Listo</option>
-                                    </select>`;
+        casillaEstado.innerHTML = ``;
         let estados = casillaEstado.firstChild;
-        estados.addEventListener("blur",()=>{
+        estados.addEventListener("change",()=>{
             console.log(estados);
             casillaEstado.innerHTML = estados.options[estados.selectedIndex].value;
             casillaEstado.style.backgroundColor = DefinirEstado(casillaEstado.innerHTML);
@@ -122,25 +107,6 @@ class Tabla {
             },100);
         })
     }
-
-    agregarSubGrupo(fila){
-        let subGrupo = document.querySelector(`.sub-grupo-${fila}`); 
-        subGrupo.style.display = `block`;
-        subGrupo.innerHTML += `<div class="sub-elemento">
-                                    <label onclick="ModificarTexto(${ArregloTablas.length-1},${ArregloTablas[ArregloTablas.length-1].getFilas()},0)">Tarea</label>
-                                    <label  onclick="ModificarEncargado(${ArregloTablas.length-1},${ArregloTablas[ArregloTablas.length-1].getFilas()})">Encargado</label>
-                                    <label onclick="ModificarEstado(${ArregloTablas.length-1},${ArregloTablas[ArregloTablas.length-1].getFilas()})">Estado</label>
-                                    <label onclick="ModificarTexto(${ArregloTablas.length-1},${ArregloTablas[ArregloTablas.length-1].getFilas()},3)">Descripcion</label>
-                                </div>`; 
-
-        let subBtn = subGrupo.nextElementSibling;
-        subBtn.removeAttribute("onclick");
-        subBtn.style.width = "100%";
-        subBtn.style.padding = "0px";
-        subBtn.innerHTML = `<span> <i class="fa-regular fa-plus"></i> Nuevo sub-grupo</span> <span onclick="" >OCULTAR</span>`
-
-        this.setFilas(this.getFilas()+1);
-    }
 }
 
-ArregloTablas.push(new Tabla(8,4));
+ArregloTablas.push(new Tabla(4));

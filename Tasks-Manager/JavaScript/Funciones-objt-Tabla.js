@@ -44,6 +44,21 @@ const ModificarEncargado = (tabla,fila) =>{
     ArregloTablas[tabla].modificarEncargado(tabla,fila);
 }
 
-const AgregarSubGrupo = (tabla,fila) =>{
-    ArregloTablas[tabla].agregarSubGrupo(fila-2);  //se rebajan dos unidades, ya que al pasar por el arreglo childrens, se agregaron 2 elementos mas;
+const selected = document.querySelector(".selected");
+const optionsContainer = document.querySelector(".options-container");
+
+const optionsList = document.querySelectorAll(".opcion");
+
+const DesplegarMenu = ()=>{
+    optionsContainer.classList.add("active");
 }
+
+const elegirOpcion = (numOpcion) =>{
+    let opcion  = optionsContainer.querySelector(`.opcion-${numOpcion}`).lastElementChild.innerHTML;
+    console.log(opcion)
+    selected.innerHTML = opcion;
+    optionsContainer.classList.remove("active");
+}
+
+
+

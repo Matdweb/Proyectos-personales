@@ -158,7 +158,7 @@ body::-webkit-scrollbar-thumb{
     height: 100%;
     outline: 1px solid #aaaa;    
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     line-break: auto;
     overflow: hidden;
@@ -193,7 +193,7 @@ body::-webkit-scrollbar-thumb{
     grid-row: 1;
     text-align: start;
     align-self: center;
-    background-color: rgb(92, 92, 92);
+    background: #2f3640;
     font-weight: bold;
 }
 
@@ -215,32 +215,4 @@ body::-webkit-scrollbar-thumb{
     background-color: #071425;
     border: none;
     outline: 2px solid #aaaa;
-}
-
-/* nuevo sub-grupo */
-.container-tareas .container-tabla .tabla label.btn-sub-grupo{
-    display: flex;
-    font-size: medium;
-    justify-content: space-around;
-    align-items: center;
-    outline: 1.5px solid orange;
-    width: fit-content;
-    height: 100%;
-    padding: 0 9px 0 12px;
-}
-
-.container-tareas .container-tabla .tabla label.btn-sub-grupo p{
-    font-size: 0;
-    margin-left: 5px;
-    transition: all .8s ease-out;
-}
-
-.container-tareas .container-tabla .tabla label.btn-sub-grupo:hover p {
-    font-size: medium;
-    display: flex;
-}
-
-/* container sub-grupos */
-.container-tareas .container-tabla .tabla .sub-grupo{
-    display: none;
 }
