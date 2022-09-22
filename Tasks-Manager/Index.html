@@ -7,7 +7,8 @@
     <script src="https://kit.fontawesome.com/cc7616c0ac.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="estilos-task-manager/estilos.css">
     <link rel="stylesheet" href="estilos-task-manager/estilos-info-usuario.css">
-    <link rel="stylesheet" href="estilos-task-manager/estilos-select-menu.css">
+    <link rel="stylesheet" href="estilos-task-manager/estilos-select-estados.css">
+    <link rel="stylesheet" href="estilos-task-manager/estilos-select-encargado.css">
     <title>Gestion de tareas - Matweb</title>
 </head>
 <body>
@@ -65,110 +66,197 @@
                         <label>Estado</label>
                         <label>Descripcion</label>
                         <label>Fecha</label>
+                        <label>Sub-Tareas</label>
                     </div>
                     <div class="fila">
                         <label onclick="ModificarTexto(0,1,0)">Tarea</label>
-                        <label onclick="ModificarEncargado(0,1)">Encargado</label>
-                        <label onclick="">
-                            <div class="select-box">
-                                <div class="options-container">
-                                    <div onclick="elegirOpcion(1)" class="opcion opcion-1">
-                                      <input type="radio" class="radio" id="automobiles" name="category"/>
-                                      <span for="automobiles">En proceso</span>
+                        <label>
+                            <div class="container-encargados"> 
+                                <div onclick="DesplegarEncargados(0)" class="encargado">
+                                    Encargado
+                                </div>
+                                <div class="container-opciones-encargado">
+                                    <div class="Integrante">
+                                      <input type="radio" class="radio"/>
+                                      <span onclick="elegirEncargado(0,0)">Nadie</span>
                                     </div>
-                                    <div onclick="elegirOpcion(2)" class="opcion opcion-2">
-                                        <input type="radio" class="radio" id="film" name="category" />
-                                        <span for="film">Listo</span>
+                                </div>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="container-estados"> 
+                                <div onclick="DesplegarEstados(0)" class="seleccion">
+                                    Estado
+                                </div>
+                                <div class="container-opciones-estado">
+                                </div>
+                            </div>
+                        </label>
+                        <label onclick="ModificarTexto(0,1,3)">Descripcion</label>
+                        <label><input type="date" name="" id="fecha" data-date-format="DD MMMM YYYY" value="2022-09-21"></label>
+                        <label>
+                            <div class="container-sub-tareas"> 
+                                <div onclick="DesplegarSubTareas(0)" class="ver-sub-tarea">
+                                    Sub-Tareas
+                                </div>
+                                <div class="container-opciones-sub-tareas">
+                                    <div class="sub-tarea">
+                                      <input type="radio" class="radio"/>
+                                      <span onclick="elegirSubTarea(0,0)">Sub-tarea 1</span>
+                                    </div>
+                                    <div class="sub-tarea">
+                                        <input type="radio" class="radio"/>
+                                        <span onclick="elegirSubTarea(0,1)">Sub-tarea 2</span>
+                                      </div>
+                                      <div class="sub-tarea">
+                                        <input type="radio" class="radio"/>
+                                        <span onclick="elegirSubTarea(0,2)">Sub-tarea 3</span>
+                                      </div>
+                                      <div class="sub-tarea">
+                                        <input type="radio" class="radio"/>
+                                        <span onclick="elegirSubTarea(0,3)">Sub-tarea 4</span>
                                       </div>
                                 </div>
-                          </div>
-                    </label>
-                    <div onclick="DesplegarMenu()" class="selected">
-                        Estado
-                    </div>
-                        <label onclick="ModificarTexto(0,1,3)">Descripcion</label>
-                        <label><input type="date" name="" id=""></label>
+                            </div>
+                        </label>
                     </div>
                     <div class="fila">
                         <label onclick="ModificarTexto(0,2,0)">Tarea</label>
-                        <label onclick="ModificarEncargado(0,2)">Encargado</label>
-                        <label onclick="ModificarEstado(0,2)">Estado</label>
+                        <label>
+                            <div class="container-encargados"> 
+                                <div onclick="DesplegarEncargados(1)" class="encargado">
+                                    Encargado
+                                </div>
+                                <div class="container-opciones-encargado">
+                                    <div class="Integrante">
+                                      <input type="radio" class="radio"/>
+                                      <span onclick="elegirEncargado(1,0)">Nadie</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="container-estados">
+                                <div onclick="DesplegarEstados(1)" class="seleccion">
+                                    Estado
+                                </div>
+                                <div class="container-opciones-estado">
+                                    <div class="opcion">
+                                      <input type="radio" class="radio"/>
+                                      <span onclick="elegirEstado(1,0)">Estancado</span>
+                                    </div>
+                                    <div class="opcion">
+                                        <input type="radio" class="radio"/>
+                                        <span onclick="elegirEstado(1,1)">En proceso</span>
+                                    </div>
+                                    <div class="opcion">
+                                        <input type="radio" class="radio"/>
+                                        <span onclick="elegirEstado(1,2)">Casi Listo</span>
+                                    </div>
+                                    <div class="opcion">
+                                        <input type="radio" class="radio"/>
+                                        <span onclick="elegirEstado(1,3)">Listo</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
                         <label onclick="ModificarTexto(0,2,3)">Descripcion</label>
-                        <label>dd/mm/año</label>
+                        <label><input type="date" name="" id="fecha" data-date-format="DD MMMM YYYY" value="2022-09-21"></label>
+                        <label>Sub-Tareas</label>
                     </div>
                     <div class="fila">
                         <label onclick="ModificarTexto(0,3,0)">Tarea</label>
-                        <label onclick="ModificarEncargado(0,3)">Encargado</label>
-                        <label onclick="ModificarEstado(0,3)">Estado</label>
+                        <label>
+                            <div class="container-encargados"> 
+                                <div onclick="DesplegarEncargados(2)" class="encargado">
+                                    Encargado
+                                </div>
+                                <div class="container-opciones-encargado">
+                                    <div class="Integrante">
+                                      <input type="radio" class="radio"/>
+                                      <span onclick="elegirEncargado(2,0)">Nadie</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="container-estados">
+                                <div onclick="DesplegarEstados(2)" class="seleccion">
+                                    Estado
+                                </div>
+                                <div class="container-opciones-estado">
+                                    <div class="opcion">
+                                      <input type="radio" class="radio"/>
+                                      <span onclick="elegirEstado(2,0)">Estancado</span>
+                                    </div>
+                                    <div class="opcion">
+                                        <input type="radio" class="radio"/>
+                                        <span onclick="elegirEstado(2,1)">En proceso</span>
+                                    </div>
+                                    <div class="opcion">
+                                        <input type="radio" class="radio"/>
+                                        <span onclick="elegirEstado(2,2)">Casi Listo</span>
+                                    </div>
+                                    <div class="opcion">
+                                        <input type="radio" class="radio"/>
+                                        <span onclick="elegirEstado(2,3)">Listo</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
                         <label onclick="ModificarTexto(0,3,3)">Descripcion</label>     
-                        <label>dd/mm/año</label>
+                        <label><input type="date" name="" id="fecha" data-date-format="DD MMMM YYYY" value="2022-09-21"></label>
+                        <label>Sub-Tareas</label>
                     </div>
                     <div class="fila">
                         <label onclick="ModificarTexto(0,4,0)">Tarea</label>
-                        <label onclick="ModificarEncargado(0,4)">Encargado</label>
-                        <label onclick="ModificarEstado(0,4)">Estado</label>
+                        <label>
+                            <div class="container-encargados"> 
+                                <div onclick="DesplegarEncargados(3)" class="encargado">
+                                    Encargado
+                                </div>
+                                <div class="container-opciones-encargado">
+                                    <div class="Integrante">
+                                      <input type="radio" class="radio"/>
+                                      <span onclick="elegirEncargado(3,0)">Nadie</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="container-estados">
+                                <div onclick="DesplegarEstados(3)" class="seleccion">
+                                    Estado
+                                </div>
+                                <div class="container-opciones-estado">
+                                    <div class="opcion">
+                                      <input type="radio" class="radio"/>
+                                      <span onclick="elegirEstado(3,0)">Estancado</span>
+                                    </div>
+                                    <div class="opcion">
+                                        <input type="radio" class="radio"/>
+                                        <span onclick="elegirEstado(3,1)">En proceso</span>
+                                    </div>
+                                    <div class="opcion">
+                                        <input type="radio" class="radio"/>
+                                        <span onclick="elegirEstado(3,2)">Casi Listo</span>
+                                    </div>
+                                    <div class="opcion">
+                                        <input type="radio" class="radio"/>
+                                        <span onclick="elegirEstado(3,3)">Listo</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
                         <label onclick="ModificarTexto(0,4,3)">Descripcion</label>
-                        <label>dd/mm/año</label>
+                        <label><input type="date" name="" id="fecha" data-date-format="DD MMMM YYYY" value="2022-09-21"></label>
+                        <label>Sub-Tareas</label>
                     </div>
                 </div>
                 <div onclick="AgregarFila(0)" class="cont-agregar-fila"><h4 style="margin-left: 7px;">+ Nueva Fila</h4></div>
                 <h3 onclick="AgregarTabla(0)">+ Nueva Tabla</h3>
             </div>
         </div>
-        <!-- <div class="select-box">
-            
-            <div class="options-container">
-              <div class="option">
-                <input type="radio" class="radio" id="automobiles" name="category"/>
-                <label for="automobiles">Automobiles</label>
-              </div>
-        
-              <div class="option">
-                <input type="radio" class="radio" id="film" name="category" />
-                <label for="film">Film & Animation</label>
-              </div>
-        
-              <div class="option">
-                <input type="radio" class="radio" id="science" name="category" />
-                <label for="science">Science & Technology</label>
-              </div>
-        
-              <div class="option">
-                <input type="radio" class="radio" id="art" name="category" />
-                <label for="art">Art</label>
-              </div>
-        
-              <div class="option">
-                <input type="radio" class="radio" id="music" name="category" />
-                <label for="music">Music</label>
-              </div>
-        
-              <div class="option">
-                <input type="radio" class="radio" id="travel" name="category" />
-                <label for="travel">Travel & Events</label>
-              </div>
-        
-              <div class="option">
-                <input type="radio" class="radio" id="sports" name="category" />
-                <label for="sports">Sports</label>
-              </div>
-        
-              <div class="option">
-                <input type="radio" class="radio" id="news" name="category" />
-                <label for="news">News & Politics</label>
-              </div>
-        
-              <div class="option">
-                <input type="radio" class="radio" id="tutorials" name="category" />
-                <label for="tutorials">Tutorials</label>
-              </div>
-            </div>
-        
-            <div class="selected">
-                Estado
-            </div>
-          </div>
-        </div> -->
     <script src="JavaScript/objtTabla.js"></script>
     <script src="JavaScript/Funciones-objt-Tabla.js"></script>
 </body>

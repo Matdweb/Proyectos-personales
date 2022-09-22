@@ -21,6 +21,12 @@ Integraciones en estructuas HTML
 Se integra el atributo "subGrupos" al objt Tabla, para que se lleve un orden mas organizado de esto
 19/09/22   21:55
 
+Desarrollo de la aplicacion
+Desarrollo de la columna "Estados", "encargados", "Fecha", "Sub-tareas", Front-ed funcional
+Desarrollo de funciones para el funciomiento de menus deplegables
+Arreglos a estructuras css
+21/09/2022   00:10
+
 PENDIENTES: 
 - Metodos respectivos   
 - Correcion de ciertos metodos para funcionamiento con integracion de sug-grupos

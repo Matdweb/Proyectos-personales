@@ -1,6 +1,7 @@
 let ContTareas = document.querySelector(".container-tareas"); 
 let ArregloTablas = []; 
-let Integrantes = ["Rafael", "Josue R", "Alisson", "Stephanie", "Josue S", "Esteban"];
+let Integrantes = ["Josue R", "Alisson", "Stephanie", "Josue S", "Esteban","Rafael"];
+let arregloEstados = ["Estancado","En proceso","Casi Listo","Listo"];
 
 class Tabla {
     constructor(filas){
