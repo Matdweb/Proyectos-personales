@@ -41,6 +41,10 @@
     height: 160px;
     opacity: 1;
   }
+
+  .container-opciones-sub-tareas.active{
+    height: fit-content;
+  }
   
   .container-opciones-estado .opcion, .container-opciones-encargado .Integrante, .container-opciones-sub-tareas .sub-tarea{
     width: 100%;

@@ -6,16 +6,16 @@ body{
     margin: 0;
     top: 0;
     left: 0;
-    overflow-x: hidden;
+    overflow-x: scroll;
 }
 
 body::-webkit-scrollbar{
-    width: 5px;
+    width: 20px;
 }
 
 body::-webkit-scrollbar-thumb{
-    height: 20px;
-    background: rgba(103, 103, 103, 0.805)
+    width: 20px;
+    background: #2f3640;
 }
 
 .container-perfil-tareas{
@@ -28,6 +28,7 @@ body::-webkit-scrollbar-thumb{
 }
 
 .container-tareas{
+    width: 100%;
     padding-top: 60px;
     padding-left: 40px;
     grid-column: 2;
@@ -38,18 +39,9 @@ body::-webkit-scrollbar-thumb{
     grid-auto-rows: auto;
     justify-content: start;
     align-items: start;
-    overflow-x: scroll;
 }
 
-.container-tareas::-webkit-scrollbar{
-    height: 10px;
-}
-
-.container-tareas::-webkit-scrollbar-thumb{
-    background: rgba(103, 103, 103, 0.426)
-}
-
-
+/* Conatiner tabla */
 .container-tareas .container-tabla{
     padding: 5px;
     grid-column: 1;
@@ -178,7 +170,11 @@ body::-webkit-scrollbar-thumb{
 }
 
 .fila label:hover::-webkit-scrollbar-thumb{
-    background: rgb(52, 161, 59);
+    background: rgb(135, 135, 135);
+}
+
+.container-tareas .container-tabla .tabla .fila label p, .container-tareas .container-tabla .tabla .fila label input{
+   margin-left: 6px;
 }
 
 /* estilos-casillas */

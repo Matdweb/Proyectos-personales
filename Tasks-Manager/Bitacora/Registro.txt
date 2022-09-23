@@ -27,9 +27,14 @@ Desarrollo de funciones para el funciomiento de menus deplegables
 Arreglos a estructuras css
 21/09/2022   00:10
 
+Eliminacion de una hoja de estilos del select integrado, ya que no era necesaria
+ELiminacion del objt fila, ya que no se le encontro uso sintactico adecuado
+Ajuste adecuado de estilizacion y estructras HTML 
+Correcion del metodo "agregarFila", adapatacion a las integracion a estructras HTML realizadas
+22/09/22   00:11
+
 PENDIENTES: 
 - Metodos respectivos   
 - Correcion de ciertos metodos para funcionamiento con integracion de sug-grupos
 - sub-grupos
-- info del usuario
-- casilla de fecha
+- funcionalidad de los graficos/esstadisticas del usuario
