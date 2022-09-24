@@ -1,61 +1,53 @@
-const DesplegarEstados = (fila)=>{
+const DesplegarEstados = (numTabla,fila)=>{
     let seleccion = document.querySelectorAll(".seleccion");
-    let containerOpciones = document.querySelectorAll(".container-opciones-estado");
+    let contTabla = document.querySelector(`.tabla-${numTabla}`);
+    let containerOpciones = contTabla.querySelectorAll(".container-opciones-estado");
     containerOpciones[fila].classList.add("active");
     seleccion[fila].removeAttribute("onclick");
     if(containerOpciones[fila].children.length<=1){
-        llenarEstados(fila,containerOpciones);
+        llenarEstados(numTabla,fila,containerOpciones);
     }
 }
 
-const elegirEstado = (fila,numOpcion) =>{
-    let seleccion = document.querySelectorAll(".seleccion");
-    let containerOpciones = document.querySelectorAll(".container-opciones-estado");
-    let estado = seleccion[fila];
-    estado.innerHTML = document.querySelectorAll(".opcion")[numOpcion].lastElementChild.innerHTML;
-    containerOpciones[fila].classList.remove("active");
-    estado.setAttribute("onclick",`DesplegarEstados(${fila})`);
-    estado.parentElement.parentElement.style.backgroundColor = DefinirEstado(estado.innerHTML);
+const elegirEstado = (numTabla,fila,numOpcion) =>{
+    ArregloTablas[numTabla].modificarEstado(numTabla,fila,numOpcion);
 }
 
-const llenarEstados = (fila,containerOpciones) =>{
+const llenarEstados = (numTabla,fila,containerOpciones) =>{
     var i=0;
     for(var estado of arregloEstados){
         containerOpciones[fila].innerHTML += `<div class="opcion">
                                               <input type="radio" class="radio"/>
-                                              <span onclick="elegirEstado(${fila},${i})">${estado}</span>
+                                              <span onclick="elegirEstado(${numTabla},${fila},${i})">${estado}</span>
                                             </div>`;
         i++;
     }
 }
 
 
-const DesplegarEncargados = (fila)=>{
-    let containerEncargados = document.querySelectorAll(".container-opciones-encargado");
+const DesplegarEncargados = (numTabla,fila)=>{
+    let contTabla = document.querySelector(`.tabla-${numTabla}`);
+    let containerEncargados = contTabla.querySelectorAll(".container-opciones-encargado");
     containerEncargados[fila].classList.add("active");
     document.querySelectorAll(".encargado")[fila].removeAttribute("onclick");
     if(containerEncargados[fila].children.length==1){
-        llenarIntegrantes(fila,containerEncargados);
+        llenarIntegrantes(numTabla,fila,containerEncargados);
     }
 }
 
-const llenarIntegrantes = (fila,containerEncargados) =>{
+const llenarIntegrantes = (numTabla,fila,containerEncargados) =>{
     var i=1;
     for(var Integrante of Integrantes){
         containerEncargados[fila].innerHTML += `<div class="Integrante">
                                                     <input type="radio" class="radio"/>
-                                                    <span onclick="elegirEncargado(${fila},${i})">${Integrante}</span>
+                                                    <span onclick="elegirEncargado(${numTabla},${fila},${i})">${Integrante}</span>
                                                 </div>`;
         i++;
     }
 }
 
-const elegirEncargado = (fila,numOpcion) =>{
-    let containerEncargados = document.querySelectorAll(".container-opciones-encargado");
-    let encargado = document.querySelectorAll(".encargado")[fila];
-    encargado.innerHTML = containerEncargados[fila].querySelectorAll(".Integrante")[numOpcion].lastElementChild.innerHTML;
-    document.querySelectorAll(".container-opciones-encargado")[fila].classList.remove("active");
-    encargado.setAttribute("onclick",`DesplegarEncargados(${fila})`);
+const elegirEncargado = (numTabla,fila,numOpcion) =>{
+    ArregloTablas[numTabla].modificarEncargado(numTabla,fila,numOpcion);
 }
 
 const subTarea = document.querySelectorAll(".ver-sub-tarea");

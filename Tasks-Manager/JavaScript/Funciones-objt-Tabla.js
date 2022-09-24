@@ -39,7 +39,3 @@ const DefinirEstado = (casillaEstado) =>{
         default: return "#2f3640"; 
     }
 }
-
-const ModificarEncargado = (tabla,fila) =>{
-    ArregloTablas[tabla].modificarEncargado(tabla,fila);
-}
