@@ -33,6 +33,10 @@ Ajuste adecuado de estilizacion y estructras HTML
 Correcion del metodo "agregarFila", adapatacion a las integracion a estructras HTML realizadas
 22/09/22   00:11
 
+Modificacion de metodos agregar fila y agregar tabla, para el funcionamiento con nueva estructura HTML 
+Modificacion de funciones y metodos para que trabajen con el sistema de coordenadas (tabla,fila,columna)
+24/09/22   01:11
+
 PENDIENTES: 
 - Metodos respectivos   
 - Correcion de ciertos metodos para funcionamiento con integracion de sug-grupos
