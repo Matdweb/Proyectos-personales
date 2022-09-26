@@ -50,21 +50,20 @@ const elegirEncargado = (numTabla,fila,numOpcion) =>{
     ArregloTablas[numTabla].modificarEncargado(numTabla,fila,numOpcion);
 }
 
-const subTarea = document.querySelectorAll(".ver-sub-tarea");
-const containerSubTareas = document.querySelectorAll(".container-opciones-sub-tareas");
 
-const DesplegarSubTareas = (fila) =>{
-    let subTarea = document.querySelectorAll(".ver-sub-tarea");
-    let containerSubTareas = document.querySelectorAll(".container-opciones-sub-tareas");
-    containerSubTareas[fila].classList.add("active");
-    subTarea[fila].removeAttribute("onclick");
+const DesplegarSubTareas = (numTabla,fila) =>{
+    let contTabla = document.querySelector(`.tabla-${numTabla}`); 
+    let subTarea = contTabla.querySelectorAll(".ver-sub-tarea")[fila];
+    contTabla.querySelectorAll(".container-opciones-sub-tareas")[fila].classList.add("active");
+    subTarea.removeAttribute("onclick");
 }
 
-const elegirSubTarea = (fila,numOpcion) =>{
-    let tareaFija = document.querySelectorAll(".ver-sub-tarea")[fila];
-    let containerSubTareas = document.querySelectorAll(".container-opciones-sub-tareas");
-    let subTareas = containerSubTareas[fila].querySelectorAll(".sub-tarea");
+const elegirSubTarea = (tabla,fila,numOpcion) =>{
+    let contTabla = document.querySelector(`.tabla-${tabla}`);
+    let tareaFija = contTabla.querySelectorAll(".ver-sub-tarea")[fila];
+    let containerSubTareas = contTabla.querySelectorAll(".container-opciones-sub-tareas")[fila];
+    let subTareas = containerSubTareas.querySelectorAll(".sub-tarea");
     tareaFija.innerHTML = subTareas[numOpcion].lastElementChild.innerHTML;
-    containerSubTareas[fila].classList.remove("active");
-    tareaFija.setAttribute("onclick",`DesplegarSubTareas(${fila})`);
+    containerSubTareas.classList.remove("active");
+    tareaFija.setAttribute("onclick",`DesplegarSubTareas(${tabla},${fila})`);
 }

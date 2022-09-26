@@ -29,6 +29,7 @@
   }
   
   .seleccion, .encargado, .ver-sub-tarea {
+    text-align: center;
     color: #f5f6fa;
     height: 40px;
     order: 0;
@@ -44,6 +45,10 @@
 
   .container-opciones-sub-tareas.active{
     height: fit-content;
+  }
+
+  .container-tareas .container-tabla .tabla .fila label:nth-child(6):hover .container-opciones-sub-tareas.active{
+    transform: translateX(-25px);
   }
   
   .container-opciones-estado .opcion, .container-opciones-encargado .Integrante, .container-opciones-sub-tareas .sub-tarea{

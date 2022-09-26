@@ -39,3 +39,11 @@ const DefinirEstado = (casillaEstado) =>{
         default: return "#2f3640"; 
     }
 }
+
+const eliminarSubTarea = (tabla,fila) =>{
+    ArregloTablas[tabla].eliminarSubTarea(tabla,fila);
+}
+
+const agregarSubTarea = (tabla,fila) =>{
+    ArregloTablas[tabla].agregarSubTarea(tabla,fila);
+}

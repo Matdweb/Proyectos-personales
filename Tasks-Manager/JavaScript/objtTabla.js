@@ -18,8 +18,9 @@ class Tabla {
 
     NuevaTabla(){
         ArregloTablas.push(new Tabla(1));
-        ContTareas.innerHTML += `<div class="container-tabla tabla-${ArregloTablas.length-1}">
-                                    <h2 onclick="ModificarNomTabla(${ArregloTablas.length-1})">NOMBRE TABLA</h2>
+        let numTabla = ArregloTablas.length-1;
+        ContTareas.innerHTML += `<div class="container-tabla tabla-${numTabla}">
+                                    <h2 onclick="ModificarNomTabla(${numTabla})">NOMBRE TABLA</h2>
                                     <div class="tabla">
                                         <div class="fila">
                                             <label>Tarea</label>
@@ -30,48 +31,50 @@ class Tabla {
                                             <label>Sub-Tareas</label>
                                         </div>
                                         <div class="fila">
-                                            <label onclick="ModificarTexto(${ArregloTablas.length-1},${ArregloTablas[ArregloTablas.length-1].getFilas()},0)"><p>Tarea</p></label>
+                                            <label onclick="ModificarTexto(${numTabla},${ArregloTablas[numTabla].getFilas()},0)"><p>Tarea</p></label>
                                             <label>
                                                 <div class="container-encargados"> 
-                                                    <div onclick="DesplegarEncargados(${ArregloTablas.length-1},${ArregloTablas[ArregloTablas.length-1].getFilas()-1})" class="encargado">
+                                                    <div onclick="DesplegarEncargados(${numTabla},${ArregloTablas[numTabla].getFilas()-1})" class="encargado">
                                                         Encargado
                                                     </div>
                                                     <div class="container-opciones-encargado">
                                                         <div class="Integrante">
                                                           <input type="radio" class="radio"/>
-                                                          <span onclick="elegirEncargado(${ArregloTablas.length-1},${ArregloTablas[ArregloTablas.length-1].getFilas()-1},0)">Nadie</span>
+                                                          <span onclick="elegirEncargado(${numTabla},${ArregloTablas[numTabla].getFilas()-1},0)">Nadie</span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </label>
                                             <label>
                                                 <div class="container-estados"> 
-                                                    <div onclick="DesplegarEstados(${ArregloTablas.length-1},${ArregloTablas[ArregloTablas.length-1].getFilas()-1})" class="seleccion">
+                                                    <div onclick="DesplegarEstados(${numTabla},${ArregloTablas[numTabla].getFilas()-1})" class="seleccion">
                                                         Estado
                                                     </div>
                                                     <div class="container-opciones-estado">
                                                     </div>
                                                 </div>
                                             </label>
-                                            <label onclick="ModificarTexto(${ArregloTablas.length-1},${ArregloTablas[ArregloTablas.length-1].getFilas()},3)"><p>Descripcion</p></label>
+                                            <label onclick="ModificarTexto(${numTabla},${ArregloTablas[numTabla].getFilas()},3)"><p>Descripcion</p></label>
                                             <label><input type="date" name="" id="fecha" data-date-format="DD MMMM YYYY" value="2022-09-21"></label>
                                             <label>
+                                            <div onclick="agregarSubTarea(${numTabla},${ArregloTablas[numTabla].getFilas()-1})" class="btn-sub-tareas"><i class="fa-solid fa-plus"></i></div>
                                                 <div class="container-sub-tareas"> 
-                                                    <div onclick="DesplegarSubTareas(${ArregloTablas[ArregloTablas.length-1].getFilas()-1})" class="ver-sub-tarea">
+                                                    <div onclick="DesplegarSubTareas(${numTabla},${ArregloTablas[numTabla].getFilas()-1})" class="ver-sub-tarea">
                                                         Sub-Tareas
                                                     </div>
                                                     <div class="container-opciones-sub-tareas">
                                                         <div class="sub-tarea">
                                                           <input type="radio" class="radio"/>
-                                                          <span onclick="elegirSubTarea(${ArregloTablas[ArregloTablas.length-1].getFilas()-1},0)">Sub-tarea 1</span>
+                                                          <span onclick="elegirSubTarea(${numTabla},${ArregloTablas[numTabla].getFilas()-1},0)">Sub-tarea 1</span>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div onclick="eliminarSubTarea(${numTabla},${ArregloTablas[numTabla].getFilas()-1})" class="btn-sub-tareas"><i class="fa-solid fa-minus"></i></div>
                                             </label>
                                         </div>
                                     </div>
-                                    <div onclick="AgregarFila(${ArregloTablas.length-1})" class="cont-agregar-fila"><h4 style="margin-left: 7px;">+ Nueva Fila</h4></div>
-                                    <h3 onclick="AgregarTabla(${ArregloTablas.length-1})">+ Nueva Tabla</h3>
+                                    <div onclick="AgregarFila(${numTabla})" class="cont-agregar-fila"><h4 style="margin-left: 7px;">+ Nueva Fila</h4></div>
+                                    <h3 onclick="AgregarTabla(${numTabla})">+ Nueva Tabla</h3>
                                 </div>`;
         console.log(ArregloTablas);
     }
@@ -118,17 +121,15 @@ class Tabla {
                                     <label onclick="ModificarTexto(${numTabla},${ArregloTablas[numTabla].getFilas()},3)"><p>Descripcion</p></label>
                                     <label><input type="date" name="" id="fecha" data-date-format="DD MMMM YYYY" value="2022-09-21"></label>
                                     <label>
+                                    <div onclick="agregarSubTarea(${numTabla},${ArregloTablas[numTabla].getFilas()-1})" class="btn-sub-tareas"><i class="fa-solid fa-plus"></i></div>
                                         <div class="container-sub-tareas"> 
-                                            <div onclick="DesplegarSubTareas(${ArregloTablas[numTabla].getFilas()-1})" class="ver-sub-tarea">
+                                            <div onclick="DesplegarSubTareas(${numTabla},${ArregloTablas[numTabla].getFilas()-1})" class="ver-sub-tarea">
                                                 Sub-Tareas
                                             </div>
                                             <div class="container-opciones-sub-tareas">
-                                                <div class="sub-tarea">
-                                                  <input type="radio" class="radio"/>
-                                                  <span onclick="elegirSubTarea(${ArregloTablas[numTabla].getFilas()-1},0)">Sub-tarea 1</span>
-                                                </div>
                                             </div>
                                         </div>
+                                        <div onclick="eliminarSubTarea(${numTabla},${ArregloTablas[numTabla].getFilas()-1})" class="btn-sub-tareas"><i class="fa-solid fa-minus"></i></div>
                                     </label>
                                 </div>`;
     }
@@ -165,38 +166,37 @@ class Tabla {
         encargado.setAttribute("onclick",`DesplegarEncargados(${numTabla},${fila})`);
     }
 
-    // modificarEstado(tabla,fila){
-    //     let casillaEstado = document.querySelector(`.tabla-${tabla}`).children[1].children[fila].children[2]; 
-    //     casillaEstado.removeAttribute("onclick");
-    //     casillaEstado.innerHTML = ``;
-    //     let estados = casillaEstado.firstChild;
-    //     estados.addEventListener("change",()=>{
-    //         console.log(estados);
-    //         casillaEstado.innerHTML = estados.options[estados.selectedIndex].value;
-    //         casillaEstado.style.backgroundColor = DefinirEstado(casillaEstado.innerHTML);
-    //         setTimeout(()=>{
-    //             casillaEstado.setAttribute("onclick",`ModificarEstado(${tabla},${fila})`);
-    //         },100);
-    //     })
-    // }
+    agregarSubTarea(tabla,fila){
+        let contTabla = document.querySelector(`.tabla-${tabla}`); 
+        let contOpciones = contTabla.querySelectorAll(".container-opciones-sub-tareas")[fila];
+        contOpciones.previousElementSibling.innerHTML = `<input type="text"><button>crear</button>`;
+        contOpciones.previousElementSibling.lastElementChild.addEventListener("click",()=>{
+            let nombre = contOpciones.previousElementSibling.firstElementChild.value;
+            contOpciones.previousElementSibling.innerHTML = `Sub-tareas`;
+            contOpciones.innerHTML += `<div class="sub-tarea">
+                                  <input type="radio" class="radio"/>
+                                  <span onclick="elegirSubTarea(${tabla},${fila},${contOpciones.children.length})">${contOpciones.children.length+1}. ${nombre} </span>
+                                </div>`;
+        });
+        
+    }
 
-    // modificarEncargado(tabla,fila){
-    //     let casillaEncargado = document.querySelector(`.tabla-${tabla}`).children[1].children[fila].children[1]; 
-    //     casillaEncargado.removeAttribute("onclick");
-    //     casillaEncargado.innerHTML = `<select name="encargado" id="encargado"> </select>`;
-    //     let estados = casillaEncargado.firstChild;
+    eliminarSubTarea(tabla,fila){
+        let contTabla = document.querySelector(`.tabla-${tabla}`); 
+        let contOpciones = contTabla.querySelectorAll(".container-opciones-sub-tareas")[fila];
+        contOpciones.previousElementSibling.innerHTML = `<input type="number"><button>Eliminar</button>`;
+        contOpciones.previousElementSibling.lastElementChild.addEventListener("click",()=>{
+            let numOpcion = contOpciones.previousElementSibling.firstElementChild.value;
+            if(numOpcion>0){
+                contOpciones.removeChild(contOpciones.children[numOpcion-1]);
+                contOpciones.previousElementSibling.innerHTML = `Sub-tareas`;
+            }else{
+                contOpciones.previousElementSibling.innerHTML = `Sub-tareas`;
+            }
+        });
+        
+    }
 
-    //     for(var usuario of Integrantes){
-    //         estados.innerHTML += `<option value="${usuario}">${usuario}</option>`
-    //     }
-
-    //     estados.addEventListener("blur",()=>{
-    //         casillaEncargado.innerHTML = estados.options[estados.selectedIndex].value;
-    //         setTimeout(()=>{
-    //             casillaEncargado.setAttribute("onclick",`ModificarEncargado(${tabla},${fila})`);
-    //         },100);
-    //     })
-    // }
 }
 
 ArregloTablas.push(new Tabla(2));

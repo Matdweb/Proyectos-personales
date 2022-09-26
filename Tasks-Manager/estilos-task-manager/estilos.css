@@ -54,19 +54,6 @@ body::-webkit-scrollbar-thumb{
     color: orange;
 }
 
-.container-tareas .container-tabla select{
-    background-color: #00000000;
-    outline: 1.5px solid #aaaa;
-    color: #fff;
-}
-
-.container-tareas .container-tabla select option{
-    background-color: #071425;
-    outline: 1.5px solid #aaaa;
-    color: #fff;
-    font-weight: bold;
-}
-
 /* nombre tabla */
 .container-tareas .container-tabla h2{
     padding: 4px;
@@ -105,6 +92,7 @@ body::-webkit-scrollbar-thumb{
     border-top: none;
     justify-content: flex-start;
     align-items: center;
+    cursor: pointer;
 }
 
 .container-tareas .container-tabla .cont-agregar-fila:hover{
@@ -218,8 +206,23 @@ body::-webkit-scrollbar-thumb{
 .container-tareas .container-tabla .tabla .fila label:nth-child(6){
     grid-column: 6;
     grid-row: 1;
-    text-align: start;
     align-self: center;
+}
+
+.container-tareas .container-tabla .tabla .fila label:nth-child(6):hover .btn-sub-tareas{
+    display: flex;
+}
+
+.container-tareas .container-tabla .tabla .fila label:nth-child(6) .btn-sub-tareas{
+    width: 25px;
+    height: 20px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000;
+    display: none;
+    justify-content: center;
+    align-items: center;
 }
 
 .container-tareas .container-tabla .tabla .fila:nth-child(1) label{
