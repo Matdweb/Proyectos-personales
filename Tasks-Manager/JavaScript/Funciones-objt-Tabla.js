@@ -47,3 +47,19 @@ const eliminarSubTarea = (tabla,fila) =>{
 const agregarSubTarea = (tabla,fila) =>{
     ArregloTablas[tabla].agregarSubTarea(tabla,fila);
 }
+
+const Modulo = (tabla, fila) =>{
+    ArregloTablas[tabla].infoModulo(tabla,fila);
+}
+
+let btnModulo = document.getElementById("btn-modulo");
+let modulo = document.querySelector(".container-modulo");
+btnModulo.addEventListener("click",()=>{
+    if(btnModulo.checked){
+        modulo.style.removeProperty("transform");
+        modulo.style.transform = 'scale(1)'
+    }else{
+        modulo.style.removeProperty("transform");
+        modulo.style.transform = 'scale(0)';
+    }
+})

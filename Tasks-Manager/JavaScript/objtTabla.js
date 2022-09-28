@@ -183,20 +183,33 @@ class Tabla {
 
     eliminarSubTarea(tabla,fila){
         let contTabla = document.querySelector(`.tabla-${tabla}`); 
-        let contOpciones = contTabla.querySelectorAll(".container-opciones-sub-tareas")[fila];
-        contOpciones.previousElementSibling.innerHTML = `<input type="number"><button>Eliminar</button>`;
-        contOpciones.previousElementSibling.lastElementChild.addEventListener("click",()=>{
-            let numOpcion = contOpciones.previousElementSibling.firstElementChild.value;
-            if(numOpcion>0){
-                contOpciones.removeChild(contOpciones.children[numOpcion-1]);
-                contOpciones.previousElementSibling.innerHTML = `Sub-tareas`;
-            }else{
-                contOpciones.previousElementSibling.innerHTML = `Sub-tareas`;
-            }
-        });
+        let subTarea = contTabla.querySelectorAll(".ver-sub-tarea")[fila];
+        let ultimo = subTarea.nextElementSibling.children.length;
+        if(ultimo>0){
+            subTarea.nextElementSibling.removeChild(subTarea.nextElementSibling.children[ultimo-1]);
+            subTarea.innerHTML = `Se elimino la ultima sub-tarea`;
+            setTimeout(()=>{
+                subTarea.innerHTML = `Sub-tareas`;
+            },2000)
+        }else{
+            subTarea.innerHTML = `No existen sub-tareas`;
+            setTimeout(()=>{
+                subTarea.innerHTML = `Sub-tareas`;
+            },2000)
+        }
         
+    }
+
+    infoModulo(tabla,fila){
+        let filaInfo = document.querySelectorAll(`.tabla`)[tabla].children[fila];
+        for(var i = 0; i>4 ;i++){
+            contentModulo[i].innerHTML = filaInfo.children[i].firstElementChild.innerHTML;
+            console.log(contentModulo[i].innerHTML);
+            console.log('a')
+        }
     }
 
 }
 
 ArregloTablas.push(new Tabla(2));
+let contentModulo = document.querySelector(".content-modulo").children;
