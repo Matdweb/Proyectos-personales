@@ -261,7 +261,7 @@ body::-webkit-scrollbar-thumb{
     top: 0;
     left: 0;
     position: fixed;
-    background-color: rgba(109, 109, 109, 0.429);
+    background-color: rgba(30, 30, 30, 0.429);
     display: flex;
     justify-content: flex-end; 
     align-items: flex-start;
@@ -332,6 +332,9 @@ body::-webkit-scrollbar-thumb{
     grid-row: 4;
     height: 40px;
     align-self: center;
+    display: flex;
+    align-items: flex-start;
+    padding: 5px;
 }
 
 .container-modulo .modulo .content-modulo div:nth-child(4):hover{
