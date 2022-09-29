@@ -53,6 +53,10 @@ Desarrollo de estaditica tareas por completar, funciomiento exitoso
 Pendiente desarrollo del resto de estadisticas del usuario
 28/09/22   23:57
 
+Desarrollo de la funcion responsbilidad
+Desarrollo del metodo efectividadUsuario exitoso
+29/09/22    15:57
+
 PENDIENTES: 
 - Metodos respectivos   
 - funcionalidad de los graficos/estadisticas del usuario

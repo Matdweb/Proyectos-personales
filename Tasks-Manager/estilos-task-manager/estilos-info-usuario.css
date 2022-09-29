@@ -117,6 +117,6 @@
     stroke: #2f3640;
 }
 .container-info-usuario .container-dato-usuario circle:nth-child(2){
-    stroke-dashoffset: calc(315 - (315 * 70) / 100);
+    stroke-dashoffset: calc(315 - (315 * 100) / 100);
     stroke: #ce5c05;
 }
