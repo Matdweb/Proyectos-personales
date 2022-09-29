@@ -48,8 +48,11 @@ Desarrollo del modulo para mostrar informacion de cada tarea, funciomiento no ex
 Desarrollo del modulo de cada tarea, funcionamiento exitoso
 28/09/22    20:03
 
+Desarrollo de estadistica tareas completadas, funcionamiento exitoso
+Desarrollo de estaditica tareas por completar, funciomiento exitoso
+Pendiente desarrollo del resto de estadisticas del usuario
+28/09/22   23:57
+
 PENDIENTES: 
 - Metodos respectivos   
-- Correcion de ciertos metodos para funcionamiento con integracion de sug-grupos
-- sub-grupos
-- funcionalidad de los graficos/esstadisticas del usuario
+- funcionalidad de los graficos/estadisticas del usuario

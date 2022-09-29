@@ -70,90 +70,53 @@
 }
 
 .container-info-usuario .container-dato-usuario{
-    width: 120px;
-    height: 120px;
-    margin: 10px;
+    width: 140px;
+    height: 150px;
+    margin: 5px;
     display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     color: #fff;
 }
 
-.ui-widgets {
-    position: relative;
-    display: inline-block;
-    width: 10rem;
-    height: 10rem;
-    border-radius: 9rem;
-    margin:1.5rem;
-    border: 1.2rem solid palegreen;
-    box-shadow: inset 0 0 7px grey;
-    border-left-color: palegreen;
-    border-top-color:chartreuse ;
-    border-right-color: darkgreen;
-    border-bottom-color: white ;
-    text-align: center;
-    box-sizing: border-box;
-}
-  
-/* Apply css properties to the second
-    child of ui-widgets class */
-.ui-widgets:nth-child(2) {
-    border-top-color:chartreuse ;
-    border-right-color: white;
-    border-left-color: palegreen;
-    border-bottom-color: white;
-}
-  
-/* Apply css properties to ui-widgets
-   class and ui-values class */
-.ui-widgets .ui-values {
-    top: 40px;
-    position: absolute;
-    left: 10px;
-    right: 0;
-    font-weight: 700;
-    font-size: 2.0rem;
-}
-  
-/*  Apply css properties to ui-widgets 
-class and ui-labels class */
-.ui-widgets .ui-labels {
-    left: 0;
-    bottom: -16px;
-    text-shadow: 0 0 4px grey;
-    color:black;
-    position: absolute;
-    width: 100%;
-    font-size: 16px;
+.container-info-usuario .container-dato-usuario h3{
+    font-size: 15px;
+    padding: 0;
 }
 
-/* .container-info-usuario .container-dato-usuario .barra-progreso{
-    grid-column: 1;
-    grid-row: 2;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.container-info-usuario .container-dato-usuario svg{
+    width: 120px;
+    height: 130px;
+    margin-left: 5px;
+    overflow: visible;
 }
 
-.container-info-usuario .container-dato-usuario .barra-progreso svg{
-    position: relative;
-    width: 80px;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.container-info-usuario .container-dato-usuario span{
+   position: absolute;
+   margin-top: 25px;
+   margin-right: 5px;
+   font-size: 30px;
+   font-weight: bold;
 }
 
-.container-info-usuario .container-dato-usuario .barra-progreso svg circle{
-    position: relative;
-    width: 100%;
-    height: 100%;
+.container-info-usuario .container-dato-usuario circle{
+    width: 100px;
+    height: 120px;
     fill: none;
-    stroke-width: 10;
-    stroke: #000;
+    stroke-width: 15;
+    stroke: #ce5c05;
     transform: translate(5px,5px);
-} */
+    stroke-dasharray: 315;
+    stroke-dashoffset: 315;
+}
 
-
+.container-info-usuario .container-dato-usuario circle:nth-child(1){
+    stroke-dashoffset: 0;
+    stroke: #2f3640;
+}
+.container-info-usuario .container-dato-usuario circle:nth-child(2){
+    stroke-dashoffset: calc(315 - (315 * 70) / 100);
+    stroke: #ce5c05;
+}
