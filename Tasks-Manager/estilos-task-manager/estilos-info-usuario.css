@@ -73,38 +73,87 @@
     width: 120px;
     height: 120px;
     margin: 10px;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 40px 80px;
+    display: flex;
     text-align: center;
-    overflow: hidden;
     color: #fff;
 }
 
-.container-info-usuario .container-dato-usuario .dato-usuario{
-    grid-column: 1;
-    grid-row: 1;
+.ui-widgets {
+    position: relative;
+    display: inline-block;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 9rem;
+    margin:1.5rem;
+    border: 1.2rem solid palegreen;
+    box-shadow: inset 0 0 7px grey;
+    border-left-color: palegreen;
+    border-top-color:chartreuse ;
+    border-right-color: darkgreen;
+    border-bottom-color: white ;
+    text-align: center;
+    box-sizing: border-box;
+}
+  
+/* Apply css properties to the second
+    child of ui-widgets class */
+.ui-widgets:nth-child(2) {
+    border-top-color:chartreuse ;
+    border-right-color: white;
+    border-left-color: palegreen;
+    border-bottom-color: white;
+}
+  
+/* Apply css properties to ui-widgets
+   class and ui-values class */
+.ui-widgets .ui-values {
+    top: 40px;
+    position: absolute;
+    left: 10px;
+    right: 0;
+    font-weight: 700;
+    font-size: 2.0rem;
+}
+  
+/*  Apply css properties to ui-widgets 
+class and ui-labels class */
+.ui-widgets .ui-labels {
+    left: 0;
+    bottom: -16px;
+    text-shadow: 0 0 4px grey;
+    color:black;
+    position: absolute;
+    width: 100%;
+    font-size: 16px;
 }
 
-.container-info-usuario .container-dato-usuario .barra-progreso{
+/* .container-info-usuario .container-dato-usuario .barra-progreso{
     grid-column: 1;
     grid-row: 2;
+    width: 100%;
+    height: 100%;
     display: flex;
-    font-weight: bold;
+    justify-content: center;
+    align-items: center;
 }
 
-.container-info-usuario .container-dato-usuario .barra-progreso .barra{
-    margin: auto;
-    width: 60px;
-    height: 60px;
-    border: 10px solid #ce5c05;
-    border-top: 10px solid rgba(0, 0, 0, 0);
-    border-radius: 100%;
-    transform: rotate(-45deg);
+.container-info-usuario .container-dato-usuario .barra-progreso svg{
+    position: relative;
+    width: 80px;
+    height: 80px;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.container-info-usuario .container-dato-usuario .barra-progreso .barra label{
-    margin: auto;
-    transform: rotate(45deg);
-}
+.container-info-usuario .container-dato-usuario .barra-progreso svg circle{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke-width: 10;
+    stroke: #000;
+    transform: translate(5px,5px);
+} */
+
+

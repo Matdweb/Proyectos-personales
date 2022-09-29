@@ -346,7 +346,7 @@ body::-webkit-scrollbar-thumb{
 .container-modulo .modulo .content-modulo div:nth-child(5){
     grid-column: 1;
     grid-row: 5;
-    width: 300px;
+    width: 360px;
     height: 40px;
     align-self: center;
 }
@@ -361,8 +361,20 @@ body::-webkit-scrollbar-thumb{
 .container-modulo .modulo .content-modulo div:nth-child(7){
     grid-column: 1;
     grid-row: 7;
+    width: 100px;
     height: 40px;
     align-self: center;
+    display: flex;
+    justify-content: start;
+}
+
+.container-modulo .modulo .content-modulo div:nth-child(7):hover{
+    outline: 3px solid #fff;
+    background-color: #000;
+}
+
+.container-modulo .modulo .content-modulo div:nth-child(7) i{
+    padding: 10px;
 }
 
 .container-modulo input{

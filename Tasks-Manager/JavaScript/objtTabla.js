@@ -71,6 +71,9 @@ class Tabla {
                                                 </div>
                                                 <div onclick="eliminarSubTarea(${numTabla},${ArregloTablas[numTabla].getFilas()-1})" class="btn-sub-tareas"><i class="fa-solid fa-minus"></i></div>
                                             </label>
+                                            <label for="btn-modulo">
+                                                <i onclick="Modulo(${numTabla},${ArregloTablas[numTabla].getFilas()})" class="fa-solid fa-arrow-up-right-from-square"></i>
+                                            </label>
                                         </div>
                                     </div>
                                     <div onclick="AgregarFila(${numTabla})" class="cont-agregar-fila"><h4 style="margin-left: 7px;">+ Nueva Fila</h4></div>
@@ -130,6 +133,9 @@ class Tabla {
                                             </div>
                                         </div>
                                         <div onclick="eliminarSubTarea(${numTabla},${ArregloTablas[numTabla].getFilas()-1})" class="btn-sub-tareas"><i class="fa-solid fa-minus"></i></div>
+                                    </label>
+                                    <label for="btn-modulo">
+                                        <i onclick="Modulo(${numTabla},${ArregloTablas[numTabla].getFilas()})" class="fa-solid fa-arrow-up-right-from-square"></i>
                                     </label>
                                 </div>`;
     }
@@ -202,14 +208,27 @@ class Tabla {
 
     infoModulo(tabla,fila){
         let filaInfo = document.querySelectorAll(`.tabla`)[tabla].children[fila];
-        for(var i = 0; i>4 ;i++){
-            contentModulo[i].innerHTML = filaInfo.children[i].firstElementChild.innerHTML;
-            console.log(contentModulo[i].innerHTML);
-            console.log('a')
-        }
+        let estado = filaInfo.children[2].firstElementChild.firstElementChild;
+        let anno = filaInfo.children[4].firstElementChild.value.slice(0,4); 
+        let mes = filaInfo.children[4].firstElementChild.value.slice(5,7); 
+        let dia = filaInfo.children[4].firstElementChild.value.slice(8,10)
+        contentModulo[2].style.backgroundColor = DefinirEstado(estado.innerHTML);
+         
+        contentModulo[0].innerHTML = filaInfo.children[0].firstElementChild.innerHTML;
+        contentModulo[1].innerHTML = filaInfo.children[1].firstElementChild.firstElementChild.innerHTML;
+        contentModulo[2].innerHTML = estado.innerHTML;
+        contentModulo[3].innerHTML = filaInfo.children[3].firstElementChild.innerHTML;
+        contentModulo[4].innerHTML = `Se debe entregar antes del: día ${dia}, del mes ${mes}, ${anno}` ;
+        contentModulo[5].innerHTML = filaInfo.children[5].children[1].firstElementChild.innerHTML;
+
+        contentModulo[6].addEventListener("click",()=>{
+            filaInfo.style.display = 'none';
+        });
     }
 
 }
 
 ArregloTablas.push(new Tabla(2));
 let contentModulo = document.querySelector(".content-modulo").children;
+
+

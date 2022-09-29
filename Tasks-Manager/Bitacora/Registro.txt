@@ -45,6 +45,9 @@ Desarrollo de los elementos HTML necesarios para integrar funcionalidades de met
 Desarrollo del modulo para mostrar informacion de cada tarea, funciomiento no exitoso
 28/09/22   00:10
 
+Desarrollo del modulo de cada tarea, funcionamiento exitoso
+28/09/22    20:03
+
 PENDIENTES: 
 - Metodos respectivos   
 - Correcion de ciertos metodos para funcionamiento con integracion de sug-grupos
