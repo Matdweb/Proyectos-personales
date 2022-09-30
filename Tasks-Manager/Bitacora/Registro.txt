@@ -57,6 +57,9 @@ Desarrollo de la funcion responsbilidad
 Desarrollo del metodo efectividadUsuario exitoso
 29/09/22    15:57
 
+Desarrollo de las funciones en estadisticas-usuario.js, para el funcionamiento de los graficos con las estadisticas del usuario
+29/09/22   21:45
+
 PENDIENTES: 
 - Metodos respectivos   
 - funcionalidad de los graficos/estadisticas del usuario

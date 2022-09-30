@@ -5,7 +5,7 @@
     background-color: #071425;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 40% 400px;
+    grid-template-rows: minmax(200px, 300px) 400px;
     justify-content: center;
     align-items: center;
 }
@@ -110,6 +110,7 @@
     transform: translate(5px,5px);
     stroke-dasharray: 315;
     stroke-dashoffset: 315;
+    transition: stroke-dashoffset 1s;
 }
 
 .container-info-usuario .container-dato-usuario circle:nth-child(1){

@@ -55,7 +55,7 @@ class Tabla {
                                                 </div>
                                             </label>
                                             <label onclick="ModificarTexto(${numTabla},${ArregloTablas[numTabla].getFilas()},3)"><p>Descripcion</p></label>
-                                            <label><input type="date" name="" id="fecha" data-date-format="DD MMMM YYYY" value="2022-09-21"></label>
+                                            <label><input onblur="tareasXRealizar(); efectividadUsuario(); Responsabilidad();" type="date" name="" id="fecha" data-date-format="DD MMMM YYYY" value="2022-09-21"></label>
                                             <label>
                                             <div onclick="agregarSubTarea(${numTabla},${ArregloTablas[numTabla].getFilas()-1})" class="btn-sub-tareas"><i class="fa-solid fa-plus"></i></div>
                                                 <div class="container-sub-tareas"> 
@@ -80,6 +80,11 @@ class Tabla {
                                     <h3 onclick="AgregarTabla(${numTabla})">+ Nueva Tabla</h3>
                                 </div>`;
         console.log(ArregloTablas);
+
+        //Estadisticas del usuario
+        tareasXRealizar(); 
+        efectividadUsuario(); 
+        Responsabilidad();
     }
 
     modificarTexto(tabla,fila,colm){
@@ -122,7 +127,7 @@ class Tabla {
                                         </div>
                                     </label>
                                     <label onclick="ModificarTexto(${numTabla},${ArregloTablas[numTabla].getFilas()},3)"><p>Descripcion</p></label>
-                                    <label><input type="date" name="" id="fecha" data-date-format="DD MMMM YYYY" value="2022-09-21"></label>
+                                    <label><input onblur="tareasXRealizar(); efectividadUsuario(); Responsabilidad();" type="date" name="" id="fecha" data-date-format="DD MMMM YYYY" value="2022-09-21"></label>
                                     <label>
                                     <div onclick="agregarSubTarea(${numTabla},${ArregloTablas[numTabla].getFilas()-1})" class="btn-sub-tareas"><i class="fa-solid fa-plus"></i></div>
                                         <div class="container-sub-tareas"> 
@@ -138,6 +143,11 @@ class Tabla {
                                         <i onclick="Modulo(${numTabla},${ArregloTablas[numTabla].getFilas()})" class="fa-solid fa-arrow-up-right-from-square"></i>
                                     </label>
                                 </div>`;
+
+        //Estadisticas del usuario
+        tareasXRealizar(); 
+        efectividadUsuario(); 
+        Responsabilidad();
     }
 
     nuevoNomTabla(numTabla){
@@ -161,6 +171,11 @@ class Tabla {
         containerOpciones[fila].classList.remove("active");
         estado.setAttribute("onclick",`DesplegarEstados(${numTabla},${fila})`);
         estado.parentElement.parentElement.style.backgroundColor = DefinirEstado(estado.innerHTML);
+
+        //Estadisticas del usuario
+        tareasXRealizar(); 
+        efectividadUsuario(); 
+        Responsabilidad();
     }
 
     modificarEncargado(numTabla,fila,numOpcion){
@@ -203,6 +218,11 @@ class Tabla {
                 subTarea.innerHTML = `Sub-tareas`;
             },2000)
         }
+
+        //Estadisticas del usuario
+        tareasXRealizar(); 
+        efectividadUsuario(); 
+        Responsabilidad();
         
     }
 
@@ -222,7 +242,7 @@ class Tabla {
         contentModulo[5].innerHTML = filaInfo.children[5].children[1].firstElementChild.innerHTML;
 
         contentModulo[6].addEventListener("click",()=>{
-            filaInfo.style.display = 'none';
+            filaInfo.parentElement.removeChild(filaInfo);
         });
     }
 
@@ -230,5 +250,3 @@ class Tabla {
 
 ArregloTablas.push(new Tabla(2));
 let contentModulo = document.querySelector(".content-modulo").children;
-
-
