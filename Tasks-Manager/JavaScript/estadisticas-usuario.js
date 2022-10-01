@@ -10,6 +10,20 @@ const todasTareas = () =>{
     return tareas;
 }
 
+const tareasEliminados = () =>{
+    let tablas = document.querySelectorAll('.tabla');
+    let eliminados = 0; 
+    for(var tabla of tablas){
+        for(var i=0; i<tabla.children.length; i++){
+            if(tabla.children[i].className == 'eliminado'){
+                eliminados++;
+            }
+        }
+        eliminados--;
+    }
+    return eliminados
+}
+
 //Esta funcion averigua cuantas tareas ya estan listas
 const tareasListas = () =>{
     let tablas = document.querySelectorAll('.tabla');

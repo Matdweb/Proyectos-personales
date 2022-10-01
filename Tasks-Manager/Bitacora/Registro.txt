@@ -66,4 +66,8 @@ Desarrollo del btn cerrar perfil, funcionamiento pendiente
 Desarrollo exitoso del btn cerrar perfil
 01/10/22    01:58
 
+
+Mejora de manejo de eliminicacion de filas o tareas 
+01/10/22    05:16
+
 PENDIENTES: 

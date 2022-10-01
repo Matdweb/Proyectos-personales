@@ -140,6 +140,10 @@ body::-webkit-scrollbar-thumb{
     grid-template-rows: 100%;
 }
 
+.container-tareas .container-tabla .tabla .eliminado{
+    display: none;
+}
+
 .container-tareas .container-tabla .tabla .fila label{
     width: 100%;
     height: 100%;

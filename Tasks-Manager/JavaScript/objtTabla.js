@@ -242,7 +242,7 @@ class Tabla {
         contentModulo[5].innerHTML = filaInfo.children[5].children[1].firstElementChild.innerHTML;
 
         contentModulo[6].addEventListener("click",()=>{
-            filaInfo.style.display = 'none'
+            filaInfo.className = 'eliminado';
             // filaInfo.parentElement.removeChild(filaInfo);
         });
     }
