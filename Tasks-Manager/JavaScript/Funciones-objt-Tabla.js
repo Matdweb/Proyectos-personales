@@ -63,3 +63,8 @@ btnModulo.addEventListener("click",()=>{
         modulo.style.transform = 'scale(0)';
     }
 })
+
+const cerrarPerfil = () =>{
+    document.querySelector(".container-tareas").style.gridColumn = '1 / 3';
+    document.querySelector(".container-perfil").style.transform = 'translateX(-100%)';
+}

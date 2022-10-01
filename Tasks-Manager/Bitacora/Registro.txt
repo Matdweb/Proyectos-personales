@@ -60,6 +60,7 @@ Desarrollo del metodo efectividadUsuario exitoso
 Desarrollo de las funciones en estadisticas-usuario.js, para el funcionamiento de los graficos con las estadisticas del usuario
 29/09/22   21:45
 
+Desarrollo del btn cerrar perfil, funcionamiento pendiente
+01/10/22
+
 PENDIENTES: 
-- Metodos respectivos   
-- funcionalidad de los graficos/estadisticas del usuario

@@ -5,7 +5,23 @@
     background-color: #071425;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: minmax(200px, 300px) 400px;
+    grid-template-rows: minmax(300px, 400px) 400px;
+    justify-content: center;
+    align-items: center;
+    border-right: 8px solid #ce5c05;
+}
+
+.container-perfil .cerrar-perfil{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: 5px solid #2f3640;
+    background-color: #ce5c05;
+    color: #071425;
+    position: absolute;
+    top: 10px;
+    left: 360px;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
