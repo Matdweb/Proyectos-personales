@@ -63,4 +63,7 @@ Desarrollo de las funciones en estadisticas-usuario.js, para el funcionamiento d
 Desarrollo del btn cerrar perfil, funcionamiento pendiente
 01/10/22
 
+Desarrollo exitoso del btn cerrar perfil
+01/10/22    01:58
+
 PENDIENTES: 

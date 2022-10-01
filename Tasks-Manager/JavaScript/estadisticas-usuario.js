@@ -81,3 +81,15 @@ const Responsabilidad = () =>{
 tareasXRealizar(); 
 efectividadUsuario(); 
 Responsabilidad();
+
+//cerrar el perfil usuario 
+document.querySelector(".cerrar-perfil").addEventListener("click",()=>{
+    let btn = document.getElementById("input-cerrar-perfil"); 
+    if(btn.checked){
+        document.querySelector(".container-tareas").style.gridColumn = '2';
+        document.querySelector(".container-perfil").style.transform = 'translateX(0%)';
+    }else{
+        document.querySelector(".container-tareas").style.gridColumn = '1 / 3';
+        document.querySelector(".container-perfil").style.transform = 'translateX(-100%)';
+    }
+})
