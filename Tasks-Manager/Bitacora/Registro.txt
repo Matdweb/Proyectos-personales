@@ -75,4 +75,5 @@ Integracion de la eliminacion de nuevas filas de manera exitosa en cada metodo e
 Funcionalidades principales completas para al APP 
 02/10/22   18:25
 
-PENDIENTES:         
+PENDIENTES:  
+- Correciones de reinicio de fechas cuando se agrega una fila o tabla
