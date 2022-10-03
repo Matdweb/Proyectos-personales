@@ -243,7 +243,11 @@ class Tabla {
 
         contentModulo[6].addEventListener("click",()=>{
             filaInfo.className = 'eliminado';
-            // filaInfo.parentElement.removeChild(filaInfo);
+            //Estadisticas del usuario
+            tareasXRealizar(); 
+            efectividadUsuario(); 
+            Responsabilidad();
+        
         });
     }
 

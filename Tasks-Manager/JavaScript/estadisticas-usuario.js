@@ -6,8 +6,8 @@ const todasTareas = () =>{
     for(var tabla of tablas){
        tareas += tabla.children.length-1  //se resta 1 debido a que la primera fila no cuenta
     }
-    console.log(tareas)
-    return tareas;
+    console.log(tareas-tareasEliminados())
+    return tareas-tareasEliminados();
 }
 
 const tareasEliminados = () =>{
@@ -19,8 +19,8 @@ const tareasEliminados = () =>{
                 eliminados++;
             }
         }
-        eliminados--;
     }
+    console.log('eliminadas' + eliminados)
     return eliminados
 }
 
@@ -30,8 +30,8 @@ const tareasListas = () =>{
     let listas = 0; 
     for(var tabla of tablas){
        for(var i=1; i<tabla.children.length; i++){
-        console.log(tabla.children[i].children[2].firstElementChild.firstElementChild.innerHTML);
-        if(tabla.children[i].children[2].firstElementChild.firstElementChild.innerHTML=='Listo'){
+        if(tabla.children[i].children[2].firstElementChild.firstElementChild.innerHTML=='Listo' 
+        && tabla.children[i].className != 'eliminado'){
             listas++;
         }
        }
@@ -59,7 +59,8 @@ const efectividadUsuario = () =>{
     for(var tabla of tablas){
         for(var i=1; i<tabla.children.length; i++){
             if(tabla.children[i].children[2].firstElementChild.firstElementChild.innerHTML=='Listo' 
-            || tabla.children[i].children[2].firstElementChild.firstElementChild.innerHTML=='Casi Listo'){
+            || tabla.children[i].children[2].firstElementChild.firstElementChild.innerHTML=='Casi Listo'
+            && tabla.children[i].className != 'eliminado'){
                 listas++;
             }
         }
@@ -79,7 +80,7 @@ const Responsabilidad = () =>{
     for(var tabla of tablas){
         for(var i=1; i<tabla.children.length; i++){
             let fecha = tabla.children[i].querySelector(`#fecha`).value.split('-').join(',');
-            if(hoy.getTime()>=new Date(fecha)){
+            if(hoy.getTime()>=new Date(fecha) && tabla.children[i].className != 'eliminado'){
                 faltas++;
             }
         }
@@ -97,13 +98,19 @@ efectividadUsuario();
 Responsabilidad();
 
 //cerrar el perfil usuario 
-document.querySelector(".cerrar-perfil").addEventListener("click",()=>{
-    let btn = document.getElementById("input-cerrar-perfil"); 
-    if(btn.checked){
-        document.querySelector(".container-tareas").style.gridColumn = '2';
-        document.querySelector(".container-perfil").style.transform = 'translateX(0%)';
+const btn = document.querySelector(".cerrar-perfil")
+btn.addEventListener("click",()=>{
+    let checkbox = document.getElementById("input-cerrar-perfil"); 
+    let contTareas = document.querySelector(".container-tareas");
+    let perfil = document.querySelector(".container-perfil"); 
+
+    if(checkbox.checked){
+        contTareas.style.gridColumn = '2';
+        perfil.style.transform = 'translateX(0%)';
+        btn.style.transform = 'rotate(-180deg)';
     }else{
-        document.querySelector(".container-tareas").style.gridColumn = '1 / 3';
-        document.querySelector(".container-perfil").style.transform = 'translateX(-100%)';
+        contTareas.style.gridColumn = '1 / 3';
+        perfil.style.transform = 'translateX(-100%)';
+        btn.style.transform = 'rotate(180deg)';
     }
 })

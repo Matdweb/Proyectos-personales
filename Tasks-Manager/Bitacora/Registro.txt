@@ -70,4 +70,9 @@ Desarrollo exitoso del btn cerrar perfil
 Mejora de manejo de eliminicacion de filas o tareas 
 01/10/22    05:16
 
-PENDIENTES: 
+Desarrollo del btn cerrar perfil funcionalidad 100% exitosa
+Integracion de la eliminacion de nuevas filas de manera exitosa en cada metodo exitoso
+Funcionalidades principales completas para al APP 
+02/10/22   18:25
+
+PENDIENTES:         
