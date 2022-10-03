@@ -9,6 +9,7 @@
     justify-content: center;
     align-items: center;
     border-right: 8px solid #ce5c05;
+    transtion: all 1s;
 }
 
 .container-perfil .cerrar-perfil{
