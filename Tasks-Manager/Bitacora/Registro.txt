@@ -75,5 +75,8 @@ Integracion de la eliminacion de nuevas filas de manera exitosa en cada metodo e
 Funcionalidades principales completas para al APP 
 02/10/22   18:25
 
+adaptacion del modulo de informacion en responsive
+05/10/22   19:37
+
 PENDIENTES:  
 - Correciones de reinicio de fechas cuando se agrega una fila o tabla
