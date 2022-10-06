@@ -20,7 +20,6 @@ const tareasEliminados = () =>{
             }
         }
     }
-    console.log('eliminadas' + eliminados)
     return eliminados
 }
 
